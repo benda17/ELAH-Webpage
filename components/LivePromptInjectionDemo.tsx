@@ -246,7 +246,7 @@ export default function LivePromptInjectionDemo() {
                     </div>
                     <div className="bg-black/80 p-4 rounded border border-elah-blue/30">
                       <div className="text-elah-blue mono text-sm mb-2">
-                        ✓ Intent Anchored: "{currentAttack.userPrompt}"
+                        ✓ Intent Anchored: &quot;{currentAttack.userPrompt}&quot;
                       </div>
                       <div className="text-white/60 mono text-xs mt-3">
                         Shadow tracking agent reasoning...
