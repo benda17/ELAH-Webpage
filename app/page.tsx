@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
 import PromptInjectionDemo from "@/components/PromptInjectionDemo";
+import LivePromptInjectionDemo from "@/components/LivePromptInjectionDemo";
 import SolutionDemo from "@/components/SolutionDemo";
 import Industries from "@/components/Industries";
 import Comparison from "@/components/Comparison";
@@ -19,6 +20,7 @@ export default function Home() {
       <Problem />
       <Solution />
       <PromptInjectionDemo />
+      <LivePromptInjectionDemo />
       <SolutionDemo />
       <Comparison />
       <Industries />
