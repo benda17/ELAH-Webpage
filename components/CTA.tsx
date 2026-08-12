@@ -20,7 +20,7 @@ export default function CTA() {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
-            href="mailto:contact@elah.ai"
+            href="mailto:elahsecurity@gmail.com"
             className="inline-block px-10 py-4 border-2 border-elah-blue bg-elah-blue/10 text-elah-blue hover:bg-elah-blue hover:text-black transition-all duration-300 font-medium text-lg"
             aria-label="Contact ELAH"
           >

@@ -45,7 +45,7 @@ export default function Hero() {
                 <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
               </a>
               <a
-                href="#cta"
+                href="mailto:elahsecurity@gmail.com"
                 className="inline-flex items-center justify-center px-10 py-5 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 font-bold text-lg"
                 aria-label="Request Early Access"
               >
