@@ -1,65 +1,91 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Logo from "./Logo";
+
+const LINKS = [
+  { href: "#problem", label: "Problem" },
+  { href: "#solution", label: "Solution" },
+  { href: "#demos", label: "Demos" },
+  { href: "#industries", label: "Industries" },
+];
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/95 backdrop-blur-md border-b-2 border-white/20 shadow-[0_0_30px_rgba(0,168,255,0.3)]"
-          : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled || open
+          ? "border-b border-[#1f2b45] bg-[#0a1024]/90 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="#hero" className="flex items-center hover:opacity-80 transition-opacity">
-          <Logo />
+      <div className="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-3.5">
+        <a href="#hero" className="flex items-center" onClick={() => setOpen(false)}>
+          <Logo size="sm" />
         </a>
-        <div className="hidden md:flex items-center space-x-8">
+
+        <div className="hidden items-center gap-8 md:flex">
+          {LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-[13px] text-white/60 transition hover:text-white"
+            >
+              {link.label}
+            </a>
+          ))}
           <a
-            href="#problem"
-            className="text-white/80 hover:text-white font-medium transition-colors text-sm border-b-2 border-transparent hover:border-white"
+            href="mailto:elahsecurity@gmail.com"
+            className="border border-elah-blue px-4 py-2 text-[13px] font-medium text-elah-blue transition hover:bg-elah-blue hover:text-black"
           >
-            Problem
-          </a>
-          <a
-            href="#solution"
-            className="text-white/80 hover:text-white font-medium transition-colors text-sm border-b-2 border-transparent hover:border-white"
-          >
-            Solution
-          </a>
-          <a
-            href="#demos"
-            className="text-white/80 hover:text-white font-medium transition-colors text-sm border-b-2 border-transparent hover:border-white"
-          >
-            Demos
-          </a>
-          <a
-            href="#industries"
-            className="text-white/80 hover:text-white font-medium transition-colors text-sm border-b-2 border-transparent hover:border-white"
-          >
-            Industries
-          </a>
-          <a
-            href="#cta"
-            className="px-6 py-2 border-2 border-white text-white hover:bg-white hover:text-black font-bold transition-all text-sm"
-          >
-            Contact
+            Request access
           </a>
         </div>
+
+        <button
+          type="button"
+          className="mono text-[11px] uppercase tracking-[0.16em] text-white/70 md:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-label="Toggle menu"
+        >
+          {open ? "Close" : "Menu"}
+        </button>
       </div>
+
+      {open ? (
+        <div className="border-t border-[#1f2b45] px-6 py-4 md:hidden">
+          <div className="flex flex-col gap-4">
+            {LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-white/80"
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="mailto:elahsecurity@gmail.com"
+              className="text-sm text-elah-blue"
+              onClick={() => setOpen(false)}
+            >
+              Request access
+            </a>
+          </div>
+        </div>
+      ) : null}
     </nav>
   );
 }
-

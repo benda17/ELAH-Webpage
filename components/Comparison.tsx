@@ -1,8 +1,7 @@
 export default function Comparison() {
   return (
-    <section id="comparison" className="py-32 px-6 bg-[#0f0f0f] relative">
-      <div className="section-divider absolute top-0 left-0 right-0" />
-      <div className="max-w-6xl mx-auto">
+    <section id="comparison" className="relative px-6 py-32">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <div className="mb-12">
           <span className="text-elah-blue text-sm font-medium tracking-wider uppercase mb-4 block">
             The Difference

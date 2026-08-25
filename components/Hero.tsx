@@ -1,77 +1,89 @@
-import Logo from "./Logo";
+import ScoreConsole from "./ScoreConsole";
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex flex-col items-center justify-center px-6 py-24 relative overflow-hidden cyber-grid">
-      {/* Animated background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-elah-blue/10 via-black to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-elah-blue/5 pointer-events-none" />
-      
-      {/* Animated grid overlay */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="h-full w-full" style={{
-          backgroundImage: `linear-gradient(rgba(0, 168, 255, 0.1) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(0, 168, 255, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
-      
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left column - Text content */}
-          <div className="text-center lg:text-left animate-fade-in">
-            <div className="mb-10 flex justify-center lg:justify-start">
-              <Logo />
-            </div>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-balance">
-              <span className="text-white text-glow-white">Reasoning-Level</span>
-              <br />
-              <span className="text-elah-blue text-glow">Security</span>
-              <br />
-              <span className="text-white text-xl md:text-2xl font-normal mt-4 block">for Agentic AI</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-balance font-light">
-              ELAH closes the Intent Gap by validating an agent&apos;s reasoning before tool execution.
-              Enterprises can deploy autonomous agents with confidence, knowing that internal reasoning
-              aligns with declared intent.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-              <a
-                href="#demos"
-                className="group inline-flex items-center justify-center px-10 py-5 bg-elah-blue text-black font-bold text-lg hover:bg-white hover:shadow-[0_0_30px_rgba(0,168,255,0.6)] transition-all duration-300 border-2 border-elah-blue"
-                aria-label="View Demos"
-              >
-                View Demos
-                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-              <a
-                href="mailto:elahsecurity@gmail.com"
-                className="inline-flex items-center justify-center px-10 py-5 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 font-bold text-lg"
-                aria-label="Request Early Access"
-              >
-                Request Early Access
-              </a>
-            </div>
+    <section
+      id="hero"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pb-20 pt-28"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 85% 10%, rgba(0,168,255,0.14), transparent 55%), radial-gradient(ellipse 50% 40% at 0% 90%, rgba(34,211,238,0.06), transparent 50%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto grid w-full max-w-[1240px] items-center gap-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-16">
+        <div className="animate-fade-in">
+          <p className="mono text-[11px] uppercase tracking-[0.22em] text-elah-blue">
+            Reasoning-level security for agentic AI
+          </p>
+          <h1 className="mt-5 max-w-xl text-[2.85rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-[4rem]">
+            Score the intent
+            <br />
+            <span className="text-elah-blue">before</span> the tool runs.
+          </h1>
+          <p className="mt-7 max-w-lg text-[17px] leading-relaxed text-white/70 sm:text-lg">
+            ELAH closes the Intent Gap by validating an agent&apos;s reasoning
+            before tool execution. Enterprises can deploy autonomous agents
+            knowing internal reasoning aligns with declared intent.
+          </p>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="mailto:elahsecurity@gmail.com"
+              className="inline-flex items-center justify-center bg-elah-blue px-6 py-3.5 text-[15px] font-semibold text-black transition hover:bg-white"
+            >
+              Request early access
+            </a>
+            <a
+              href="#demos"
+              className="inline-flex items-center justify-center border border-white/20 px-6 py-3.5 text-[15px] font-medium text-white transition hover:border-white/50"
+            >
+              View demos
+            </a>
           </div>
 
-          {/* Right column - Video */}
-          <div className="relative animate-slide-up">
-            <div className="relative aspect-video bg-black border-4 border-elah-blue/50 shadow-[0_0_60px_rgba(0,168,255,0.4)] rounded-lg overflow-hidden group hover:border-white transition-all duration-300">
-              <iframe
-                src="https://drive.google.com/file/d/1mFHntfcK0G3sXlwkATMkwZEYge90iL-R/preview"
-                className="w-full h-full"
-                allow="autoplay; encrypted-media"
-                title="ELAH Product Video"
-                allowFullScreen
-              />
+          <dl className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6">
+            <div>
+              <dt className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                Timing
+              </dt>
+              <dd className="mt-1 text-sm text-white">Pre-tool</dd>
             </div>
-            <div className="absolute -inset-2 bg-elah-blue/30 blur-2xl -z-10 rounded-lg group-hover:bg-white/20 transition-all" />
-            <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-white/30 rounded-full animate-pulse" />
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 border-2 border-elah-blue/50 rounded-full animate-pulse delay-300" />
-          </div>
+            <div>
+              <dt className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                Object
+              </dt>
+              <dd className="mt-1 text-sm text-white">Reasoning</dd>
+            </div>
+            <div>
+              <dt className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                Authority
+              </dt>
+              <dd className="mt-1 text-sm text-white">Bank policy</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div className="animate-slide-up">
+          <ScoreConsole />
+          <p className="mt-4 text-center text-[12px] text-white/35 lg:text-left">
+            Live product surface — genuine external transfer, scored before
+            execution.{" "}
+            <a
+              href="https://drive.google.com/file/d/1mFHntfcK0G3sXlwkATMkwZEYge90iL-R/view"
+              target="_blank"
+              rel="noreferrer"
+              className="text-elah-blue underline-offset-2 hover:underline"
+            >
+              Watch walkthrough
+            </a>
+          </p>
         </div>
       </div>
     </section>
   );
 }
-

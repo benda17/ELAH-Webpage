@@ -28,9 +28,9 @@ export default function PromptInjection() {
   ];
 
   return (
-    <section id="prompt-injection" className="py-32 px-6 bg-[#0f0f0f] relative">
+    <section id="prompt-injection" className="relative px-6 py-32">
       <div className="section-divider absolute top-0 left-0 right-0" />
-      <div className="max-w-6xl mx-auto">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <div className="mb-12">
           <span className="text-elah-blue text-sm font-medium tracking-wider uppercase mb-4 block">
             Defense
@@ -50,7 +50,7 @@ export default function PromptInjection() {
           {attacks.map((attack, index) => (
             <div
               key={index}
-              className="gradient-border p-8 hover:border-elah-blue/40 transition-all duration-300 group"
+              className="border-2 border-[#1f2b45] bg-[#111a2c] p-8 transition-colors duration-300 hover:border-elah-blue/50"
             >
               <div className="flex items-start">
                 <div className="flex-shrink-0 mr-6">

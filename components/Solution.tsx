@@ -1,14 +1,6 @@
 export default function Solution() {
   return (
-    <section id="solution" className="py-32 px-6 relative overflow-hidden">
-      <div className="section-divider absolute top-0 left-0 right-0" />
-      <div className="absolute inset-0 opacity-10">
-        <div className="h-full w-full" style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
+    <section id="solution" className="relative overflow-hidden px-6 py-32">
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Why Existing Security Fails */}
         <div className="mb-24">
@@ -54,7 +46,7 @@ export default function Solution() {
           
           <div className="bg-gradient-to-r from-red-500/20 via-white/10 to-transparent border-2 border-red-500/50 p-10 shadow-[0_0_40px_rgba(255,0,0,0.2)]">
             <div className="flex items-start">
-              <div className="text-4xl font-bold text-red-400 mr-4 mono">⚠</div>
+              <div className="text-4xl font-bold text-red-400 mr-4 mono">!</div>
               <div>
                 <p className="text-xl text-white leading-relaxed font-bold mb-2">
                   The blind spot:
@@ -80,15 +72,15 @@ export default function Solution() {
             <div className="h-1 w-32 bg-gradient-to-r from-transparent via-white to-transparent mx-auto" />
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="gradient-border-white p-8 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,168,255,0.4)] transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-16 h-16 rounded-full bg-elah-blue/30 flex items-center justify-center mr-4 border-2 border-elah-blue">
-                  <span className="text-elah-blue text-2xl font-bold mono">1</span>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="light-box p-8">
+              <div className="mb-4 flex items-center">
+                <div className="mr-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-elah-blue bg-elah-blue/15">
+                  <span className="text-2xl font-bold text-elah-blue mono">1</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white">Intent Anchoring</h3>
+                <h3 className="text-2xl font-semibold text-[#0a1024]">Intent Anchoring</h3>
               </div>
-              <p className="text-white/80 leading-relaxed">
+              <p className="leading-relaxed text-[#3d4f6f]">
                 ELAH establishes a baseline of declared intent before agent execution begins.
                 This intent is anchored to security policies, compliance rules, and business
                 constraints. The agent&apos;s reasoning process is then continuously validated
@@ -96,14 +88,14 @@ export default function Solution() {
               </p>
             </div>
 
-            <div className="gradient-border-white p-8 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mr-4 border-2 border-white">
-                  <span className="text-white text-2xl font-bold mono">2</span>
+            <div className="light-box p-8">
+              <div className="mb-4 flex items-center">
+                <div className="mr-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-elah-blue bg-elah-blue/15">
+                  <span className="text-2xl font-bold text-elah-blue mono">2</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white">Shadow Reasoning Tracking</h3>
+                <h3 className="text-2xl font-semibold text-[#0a1024]">Shadow Reasoning Tracking</h3>
               </div>
-              <p className="text-white/80 leading-relaxed">
+              <p className="leading-relaxed text-[#3d4f6f]">
                 ELAH operates in parallel to the agent, tracking its reasoning process without
                 interfering with execution. By analyzing the agent&apos;s internal state, decision
                 points, and reasoning chains, ELAH builds a real-time model of what the agent
@@ -111,14 +103,14 @@ export default function Solution() {
               </p>
             </div>
 
-            <div className="gradient-border-white p-8 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,168,255,0.4)] transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-16 h-16 rounded-full bg-elah-blue/30 flex items-center justify-center mr-4 border-2 border-elah-blue">
-                  <span className="text-elah-blue text-2xl font-bold mono">3</span>
+            <div className="light-box p-8">
+              <div className="mb-4 flex items-center">
+                <div className="mr-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-elah-blue bg-elah-blue/15">
+                  <span className="text-2xl font-bold text-elah-blue mono">3</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white">Semantic Verification</h3>
+                <h3 className="text-2xl font-semibold text-[#0a1024]">Semantic Verification</h3>
               </div>
-              <p className="text-white/80 leading-relaxed">
+              <p className="leading-relaxed text-[#3d4f6f]">
                 Before any tool execution, ELAH performs semantic verification of the agent&apos;s
                 reasoning. It compares the agent&apos;s internal reasoning against the anchored
                 intent, detecting divergence, policy violations, or reasoning drift. This verification
@@ -126,14 +118,14 @@ export default function Solution() {
               </p>
             </div>
 
-            <div className="gradient-border-white p-8 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mr-4 border-2 border-white">
-                  <span className="text-white text-2xl font-bold mono">4</span>
+            <div className="light-box p-8">
+              <div className="mb-4 flex items-center">
+                <div className="mr-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-elah-blue bg-elah-blue/15">
+                  <span className="text-2xl font-bold text-elah-blue mono">4</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white">Enforcement + Human Escalation</h3>
+                <h3 className="text-2xl font-semibold text-[#0a1024]">Enforcement + Human Escalation</h3>
               </div>
-              <p className="text-white/80 leading-relaxed">
+              <p className="leading-relaxed text-[#3d4f6f]">
                 When ELAH detects reasoning that violates intent or policy, it can block execution
                 before any tool is called. For ambiguous cases, ELAH escalates to human review
                 while maintaining the agent&apos;s reasoning context. This ensures that autonomous

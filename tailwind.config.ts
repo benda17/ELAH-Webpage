@@ -19,10 +19,13 @@ const config: Config = {
           "gray-dark": "#2A2A2A",
         },
       },
+      fontFamily: {
+        sans: ["Space Grotesk", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+      },
       animation: {
-        "fade-in": "fadeIn 0.6s ease-in-out",
-        "slide-up": "slideUp 0.6s ease-out",
-        "glow": "glow 2s ease-in-out infinite alternate",
+        "fade-in": "fadeIn 0.7s ease-out",
+        "slide-up": "slideUp 0.7s ease-out",
       },
       keyframes: {
         fadeIn: {
@@ -30,12 +33,8 @@ const config: Config = {
           "100%": { opacity: "1" },
         },
         slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "0%": { transform: "translateY(16px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        glow: {
-          "0%": { boxShadow: "0 0 5px rgba(0, 168, 255, 0.3)" },
-          "100%": { boxShadow: "0 0 20px rgba(0, 168, 255, 0.6)" },
         },
       },
     },
@@ -43,4 +42,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-

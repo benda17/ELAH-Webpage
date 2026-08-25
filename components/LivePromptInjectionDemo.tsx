@@ -15,7 +15,7 @@ interface AttackExample {
 }
 
 export default function LivePromptInjectionDemo() {
-  const [selectedAttack, setSelectedAttack] = useState<number | null>(null);
+  const [selectedAttack, setSelectedAttack] = useState<number>(1);
   const [isRunning, setIsRunning] = useState(false);
   const [step, setStep] = useState(0);
   const [showWithoutELAH, setShowWithoutELAH] = useState(true);
@@ -99,9 +99,9 @@ export default function LivePromptInjectionDemo() {
   }, [selectedAttack, showWithoutELAH]);
 
   return (
-    <section className="py-32 px-6 bg-black relative overflow-hidden">
+    <section className="relative overflow-hidden px-6 py-32">
       <div className="section-divider absolute top-0 left-0 right-0" />
-      <div className="max-w-7xl mx-auto">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <span className="text-elah-blue text-sm font-bold tracking-wider uppercase mb-4 block mono">
             Live Demonstration
@@ -124,10 +124,10 @@ export default function LivePromptInjectionDemo() {
                 setIsRunning(false);
                 setStep(0);
               }}
-              className={`gradient-border p-6 text-left transition-all duration-300 ${
+              className={`border-2 bg-[#111a2c] p-6 text-left transition-all duration-300 ${
                 selectedAttack === attack.id
-                  ? "border-white scale-105 shadow-[0_0_40px_rgba(0,168,255,0.5)]"
-                  : "hover:border-elah-blue/50"
+                  ? "border-elah-blue"
+                  : "border-[#1f2b45] hover:border-elah-blue/60"
               }`}
             >
               <div className="text-2xl font-bold text-elah-blue mb-2 mono">
@@ -175,7 +175,7 @@ export default function LivePromptInjectionDemo() {
             </div>
 
             {/* Simulation Area */}
-            <div className="gradient-border-white p-8 mb-6 min-h-[500px]">
+            <div className="mb-6 min-h-[500px] border-2 border-[#1f2b45] bg-[#111a2c] p-8">
               {/* User Input */}
               <div className="mb-6">
                 <div className="flex items-center mb-3">
@@ -230,7 +230,7 @@ export default function LivePromptInjectionDemo() {
                       </div>
                       {step >= 4 && (
                         <div className="mt-3 text-red-400 text-sm">
-                          ⚠️ ATTACK SUCCEEDED - Data compromised
+                          ATTACK SUCCEEDED — Data compromised
                         </div>
                       )}
                     </div>
@@ -338,7 +338,7 @@ export default function LivePromptInjectionDemo() {
             </div>
 
             {/* Attack Details */}
-            <div className="mt-8 gradient-border p-6 bg-white/5">
+            <div className="mt-8 border-2 border-[#1f2b45] bg-[#111a2c] p-6">
               <h4 className="text-xl font-bold text-white mb-4">Attack Analysis</h4>
               <div className="grid md:grid-cols-2 gap-6 text-white/80">
                 <div>

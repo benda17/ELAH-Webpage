@@ -1,8 +1,8 @@
 export default function Heritage() {
   return (
-    <section id="heritage" className="py-32 px-6 bg-[#0f0f0f] relative">
+    <section id="heritage" className="relative px-6 py-32">
       <div className="section-divider absolute top-0 left-0 right-0" />
-      <div className="max-w-5xl mx-auto">
+      <div className="relative z-10 mx-auto max-w-5xl">
         <div className="mb-12">
           <span className="text-elah-blue text-sm font-medium tracking-wider uppercase mb-4 block">
             Our Name

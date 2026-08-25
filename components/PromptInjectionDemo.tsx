@@ -3,8 +3,7 @@
 import { useState } from "react";
 
 export default function PromptInjectionDemo() {
-  const [selectedAttack, setSelectedAttack] = useState<number | null>(null);
-  const [showDefense, setShowDefense] = useState(false);
+  const [selectedAttack, setSelectedAttack] = useState<number>(1);
 
   const attacks = [
     {
@@ -50,9 +49,9 @@ export default function PromptInjectionDemo() {
   ];
 
   return (
-    <section id="demos" className="py-32 px-6 bg-black relative overflow-hidden">
+    <section id="demos" className="relative overflow-hidden px-6 py-32">
       <div className="section-divider absolute top-0 left-0 right-0" />
-      <div className="max-w-7xl mx-auto">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <span className="text-elah-blue text-sm font-bold tracking-wider uppercase mb-4 block mono">
             Interactive Demo
@@ -69,14 +68,11 @@ export default function PromptInjectionDemo() {
           {attacks.map((attack) => (
             <div
               key={attack.id}
-              onClick={() => {
-                setSelectedAttack(attack.id);
-                setShowDefense(false);
-              }}
-              className={`gradient-border p-8 cursor-pointer transition-all duration-300 ${
+              onClick={() => setSelectedAttack(attack.id)}
+              className={`p-8 cursor-pointer border-2 transition-all duration-300 ${
                 selectedAttack === attack.id
-                  ? "border-white scale-105 shadow-[0_0_40px_rgba(0,168,255,0.5)]"
-                  : "hover:border-elah-blue/50"
+                  ? "border-elah-blue bg-[#111a2c] scale-[1.02]"
+                  : "border-[#1f2b45] bg-[#111a2c] hover:border-elah-blue/60"
               }`}
             >
               <div className="flex items-start justify-between mb-4">
@@ -101,78 +97,84 @@ export default function PromptInjectionDemo() {
           ))}
         </div>
 
-        {selectedAttack && (
-          <div className="mt-12 animate-fade-in">
-            <div className="grid md:grid-cols-2 gap-8">
+        <div className="mt-12">
+            <div className="grid gap-8 md:grid-cols-2">
               {/* Without ELAH */}
-              <div className="gradient-border p-8 bg-red-500/10 border-red-500/50">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 rounded-full bg-red-500/30 flex items-center justify-center mr-4">
-                    <span className="text-red-400 text-2xl">✕</span>
+              <div className="border-2 border-red-500/60 bg-[#1a1014] p-8">
+                <div className="mb-6 flex items-center">
+                  <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-500/30">
+                    <span className="text-2xl text-red-400">✕</span>
                   </div>
                   <h3 className="text-2xl font-bold text-white">Without ELAH</h3>
                 </div>
-                <div className="bg-black/70 p-6 rounded border border-red-500/30">
-                  <div className="text-white mono text-sm">
+                <div className="rounded border border-red-500/30 bg-black/70 p-6">
+                  <div className="text-sm text-white mono">
                     {attacks.find((a) => a.id === selectedAttack)?.vulnerable}
                   </div>
                 </div>
-                <div className="mt-4 text-red-400 text-sm mono">
-                  ⚠️ Attack succeeds - Data compromised
+                <div className="mt-4 text-sm text-red-400 mono">
+                  Attack succeeds — data compromised
                 </div>
               </div>
 
               {/* With ELAH */}
-              <div className="gradient-border-white p-8 bg-elah-blue/10 border-elah-blue/50">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 rounded-full bg-elah-blue/30 flex items-center justify-center mr-4">
-                    <span className="text-elah-blue text-2xl">✓</span>
+              <div className="border-2 border-elah-blue/60 bg-[#111a2c] p-8">
+                <div className="mb-6 flex items-center">
+                  <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-elah-blue/30">
+                    <span className="text-2xl text-elah-blue">✓</span>
                   </div>
                   <h3 className="text-2xl font-bold text-white">With ELAH</h3>
                 </div>
-                <div className="bg-black/70 p-6 rounded border border-elah-blue/30">
-                  <div className="text-white mono text-sm">
+                <div className="rounded border border-elah-blue/30 bg-black/70 p-6">
+                  <div className="text-sm text-white mono">
                     {attacks.find((a) => a.id === selectedAttack)?.protected}
                   </div>
                 </div>
-                <div className="mt-4 text-elah-blue text-sm mono">
-                  ✓ Attack blocked - Reasoning validated
+                <div className="mt-4 text-sm text-elah-blue mono">
+                  Attack blocked — reasoning validated
                 </div>
               </div>
             </div>
 
-            <button
-              onClick={() => setShowDefense(!showDefense)}
-              className="mt-8 w-full py-4 bg-elah-blue/20 border-2 border-elah-blue text-white font-bold hover:bg-elah-blue/30 transition-all"
-            >
-              {showDefense ? "Hide" : "Show"} Defense Mechanism
-            </button>
-
-            {showDefense && (
-              <div className="mt-6 gradient-border p-8 bg-white/5">
-                <h4 className="text-xl font-bold text-white mb-4">How ELAH Defends:</h4>
-                <div className="space-y-4 text-white/80">
-                  <div className="flex items-start">
-                    <span className="text-elah-blue mr-3 mono">1.</span>
-                    <p>ELAH anchors the original user intent before agent execution begins</p>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-elah-blue mr-3 mono">2.</span>
-                    <p>Shadow reasoning tracking monitors the agent&apos;s internal logic in real-time</p>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-elah-blue mr-3 mono">3.</span>
-                    <p>Semantic verification compares reasoning against anchored intent</p>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-elah-blue mr-3 mono">4.</span>
-                    <p>Pre-execution blocking prevents the attack before any tool is called</p>
-                  </div>
+            <div className="mt-10 border-2 border-[#1f2b45] bg-[#111a2c] p-8 md:p-10">
+              <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-elah-blue mono">
+                Defense mechanism
+              </p>
+              <h4 className="mb-8 text-2xl font-semibold text-white">
+                How ELAH stops this before a tool runs
+              </h4>
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div>
+                  <div className="mb-3 text-3xl font-bold text-elah-blue mono">01</div>
+                  <h5 className="mb-2 text-lg font-semibold text-white">Anchor intent</h5>
+                  <p className="text-sm leading-relaxed text-white/70">
+                    Lock the original user objective before the agent begins reasoning.
+                  </p>
+                </div>
+                <div>
+                  <div className="mb-3 text-3xl font-bold text-elah-blue mono">02</div>
+                  <h5 className="mb-2 text-lg font-semibold text-white">Track reasoning</h5>
+                  <p className="text-sm leading-relaxed text-white/70">
+                    Shadow-monitor the agent&apos;s internal logic in real time, without interfering.
+                  </p>
+                </div>
+                <div>
+                  <div className="mb-3 text-3xl font-bold text-elah-blue mono">03</div>
+                  <h5 className="mb-2 text-lg font-semibold text-white">Verify semantics</h5>
+                  <p className="text-sm leading-relaxed text-white/70">
+                    Compare the reasoning chain against the anchored intent and policy.
+                  </p>
+                </div>
+                <div>
+                  <div className="mb-3 text-3xl font-bold text-elah-blue mono">04</div>
+                  <h5 className="mb-2 text-lg font-semibold text-white">Block execution</h5>
+                  <p className="text-sm leading-relaxed text-white/70">
+                    Stop the tool call before anything leaves the system.
+                  </p>
                 </div>
               </div>
-            )}
+            </div>
           </div>
-        )}
       </div>
     </section>
   );

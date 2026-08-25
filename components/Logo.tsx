@@ -1,18 +1,29 @@
 import Image from "next/image";
 
-export default function Logo({ className = "" }: { className?: string }) {
+const SIZES = {
+  sm: "h-8 md:h-9",
+  md: "h-10 md:h-12",
+  lg: "h-14 md:h-16",
+} as const;
+
+export default function Logo({
+  className = "",
+  size = "md",
+}: {
+  className?: string;
+  size?: keyof typeof SIZES;
+}) {
   return (
     <div className={`flex items-center ${className}`}>
       <Image
         src="/logo.png"
-        alt="ELAH Logo"
+        alt="ELAH"
         width={250}
         height={100}
-        className="h-16 md:h-20 lg:h-24 w-auto drop-shadow-[0_0_15px_rgba(0,168,255,0.6)]"
+        className={`${SIZES[size]} w-auto`}
         priority
-        style={{ objectFit: 'contain' }}
+        style={{ objectFit: "contain" }}
       />
     </div>
   );
 }
-
