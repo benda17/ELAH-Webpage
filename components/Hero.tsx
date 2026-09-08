@@ -1,3 +1,4 @@
+import HeroNewsletterForm from "./HeroNewsletterForm";
 import ScoreConsole from "./ScoreConsole";
 
 export default function Hero() {
@@ -33,10 +34,10 @@ export default function Hero() {
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="mailto:elahsecurity@gmail.com"
+              href="/demo"
               className="inline-flex items-center justify-center bg-elah-blue px-6 py-3.5 text-[15px] font-semibold text-black transition hover:bg-white"
             >
-              Request early access
+              Request a demo
             </a>
             <a
               href="#demos"
@@ -45,6 +46,8 @@ export default function Hero() {
               View demos
             </a>
           </div>
+
+          <HeroNewsletterForm />
 
           <dl className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6">
             <div>

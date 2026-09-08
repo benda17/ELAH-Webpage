@@ -20,14 +20,14 @@ export default function CTA() {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
-            href="mailto:elahsecurity@gmail.com"
+            href="/demo"
             className="inline-block px-10 py-4 border-2 border-elah-blue bg-elah-blue/10 text-elah-blue hover:bg-elah-blue hover:text-black transition-all duration-300 font-medium text-lg"
-            aria-label="Contact ELAH"
+            aria-label="Request a demo"
           >
-            Contact Us
+            Request a demo
           </a>
           <a
-            href="#hero"
+            href="/#hero"
             className="inline-block px-10 py-4 border-2 border-gray-700 text-gray-300 hover:border-gray-600 hover:text-white transition-all duration-300 font-medium text-lg"
             aria-label="Learn More"
           >

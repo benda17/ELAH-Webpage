@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.elahsecurity.com"),
   title: "ELAH | Reasoning-Level Security for Agentic AI",
   description: "ELAH closes the Intent Gap by validating an agent's reasoning before tool execution. Reasoning-level security platform for autonomous AI agents.",
   keywords: ["AI security", "agentic AI", "reasoning security", "intent validation", "autonomous agents", "cybersecurity"],
@@ -11,9 +12,14 @@ export const metadata: Metadata = {
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "ELAH | Reasoning-Level Security for Agentic AI",
     description: "Reasoning-level security platform that validates agent reasoning before tool execution.",
+    url: "https://www.elahsecurity.com",
+    siteName: "ELAH Security",
     type: "website",
   },
   twitter: {

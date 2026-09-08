@@ -18,6 +18,36 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 
+### Newsletter (hero form)
+
+The hero email field POSTs to the **founder dashboard** API. It does not store addresses on this site.
+
+| App | Port | Command |
+|-----|------|---------|
+| This webpage | **3000** | `npm run dev` in `ELAH-Webpage` |
+| Founder dashboard | **3001** | `npm run dev` in `elah-analytics-dashboard` |
+
+Copy `.env.example` to `.env.local` if you need a non-default URL:
+
+```
+NEXT_PUBLIC_NEWSLETTER_SUBSCRIBE_URL=http://localhost:3001/api/newsletter/subscribe
+```
+
+Consent checkbox is required. Without it, the form does not subscribe anyone.
+
+### Request a demo
+
+Primary CTAs go to **`/demo`**, not a mailto. That matches the usual early-stage B2B SaaS pattern: a short form (name, work email, company, optional role and agenda), then a confirmation and founder follow-up to book 30 minutes.
+
+The form POSTs to the founder dashboard `POST /api/demo/request`. Requests appear under **Demo requests** in the founder admin.
+
+Copy `.env.example` to `.env.local` if you need non-default URLs:
+
+```
+NEXT_PUBLIC_NEWSLETTER_SUBSCRIBE_URL=http://localhost:3001/api/newsletter/subscribe
+NEXT_PUBLIC_DEMO_REQUEST_URL=http://localhost:3001/api/demo/request
+```
+
 ## Build for Production
 
 ```bash
@@ -40,11 +70,14 @@ Or connect your GitHub repository to Vercel for automatic deployments.
 ├── app/
 │   ├── layout.tsx      # Root layout with SEO metadata
 │   ├── page.tsx         # Main single page
+│   ├── demo/page.tsx    # Request a demo form
 │   └── globals.css      # Global styles with custom utilities
 ├── components/
 │   ├── Navigation.tsx  # Fixed navigation header with logo
 │   ├── Logo.tsx         # ELAH logo component (stylized E)
-│   ├── Hero.tsx         # Hero section with video embed
+│   ├── Hero.tsx         # Hero section
+│   ├── HeroNewsletterForm.tsx  # Opt-in email + consent → founder API
+│   ├── DemoRequestForm.tsx     # /demo lead form → founder API
 │   ├── Problem.tsx
 │   ├── Solution.tsx
 │   ├── Industries.tsx
@@ -72,5 +105,5 @@ Or connect your GitHub repository to Vercel for automatic deployments.
 - **Fully responsive**: Mobile-first design with breakpoints
 - **Accessibility**: Semantic HTML, proper ARIA labels, high contrast
 - **SEO-optimized**: Comprehensive metadata in layout.tsx
-- **Fully static**: No backend, no auth, ready for Vercel deployment
+- **Mostly static**: newsletter opt-in and demo requests POST to the founder dashboard (`localhost:3001` locally)
 

@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 
 const LINKS = [
-  { href: "#problem", label: "Problem" },
-  { href: "#solution", label: "Solution" },
-  { href: "#demos", label: "Demos" },
-  { href: "#industries", label: "Industries" },
+  { href: "/#problem", label: "Problem" },
+  { href: "/#solution", label: "Solution" },
+  { href: "/#demos", label: "Demos" },
+  { href: "/#industries", label: "Industries" },
 ];
 
 export default function Navigation() {
@@ -30,7 +30,7 @@ export default function Navigation() {
       }`}
     >
       <div className="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-3.5">
-        <a href="#hero" className="flex items-center" onClick={() => setOpen(false)}>
+        <a href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Logo size="sm" />
         </a>
 
@@ -45,10 +45,10 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="mailto:elahsecurity@gmail.com"
+            href="/demo"
             className="border border-elah-blue px-4 py-2 text-[13px] font-medium text-elah-blue transition hover:bg-elah-blue hover:text-black"
           >
-            Request access
+            Request a demo
           </a>
         </div>
 
@@ -77,11 +77,11 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="mailto:elahsecurity@gmail.com"
+              href="/demo"
               className="text-sm text-elah-blue"
               onClick={() => setOpen(false)}
             >
-              Request access
+              Request a demo
             </a>
           </div>
         </div>
