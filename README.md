@@ -20,18 +20,14 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ### Newsletter (hero form)
 
-The hero email field POSTs to the **founder dashboard** API. It does not store addresses on this site.
+The hero email field POSTs to **this site** (`/api/newsletter/subscribe`). The Next.js route forwards to the founder dashboard. That avoids browser CORS against the login-gated founder app.
 
 | App | Port | Command |
 |-----|------|---------|
 | This webpage | **3000** | `npm run dev` in `ELAH-Webpage` |
 | Founder dashboard | **3001** | `npm run dev` in `elah-analytics-dashboard` |
 
-Copy `.env.example` to `.env.local` if you need a non-default URL:
-
-```
-NEXT_PUBLIC_NEWSLETTER_SUBSCRIBE_URL=http://localhost:3001/api/newsletter/subscribe
-```
+Leave `NEXT_PUBLIC_NEWSLETTER_SUBSCRIBE_URL` unset in production. Optionally set `FOUNDER_API_ORIGIN` if the dashboard is not `https://elahfounderplatform.vercel.app`.
 
 Consent checkbox is required. Without it, the form does not subscribe anyone.
 
@@ -39,14 +35,7 @@ Consent checkbox is required. Without it, the form does not subscribe anyone.
 
 Primary CTAs go to **`/demo`**, not a mailto. That matches the usual early-stage B2B SaaS pattern: a short form (name, work email, company, optional role and agenda), then a confirmation and founder follow-up to book 30 minutes.
 
-The form POSTs to the founder dashboard `POST /api/demo/request`. Requests appear under **Demo requests** in the founder admin.
-
-Copy `.env.example` to `.env.local` if you need non-default URLs:
-
-```
-NEXT_PUBLIC_NEWSLETTER_SUBSCRIBE_URL=http://localhost:3001/api/newsletter/subscribe
-NEXT_PUBLIC_DEMO_REQUEST_URL=http://localhost:3001/api/demo/request
-```
+The form POSTs to **this site** (`/api/demo/request`), which forwards to the founder dashboard. Requests appear under **Demo requests** in the founder admin.
 
 ## Build for Production
 
@@ -105,5 +94,5 @@ Or connect your GitHub repository to Vercel for automatic deployments.
 - **Fully responsive**: Mobile-first design with breakpoints
 - **Accessibility**: Semantic HTML, proper ARIA labels, high contrast
 - **SEO-optimized**: Comprehensive metadata in layout.tsx
-- **Mostly static**: newsletter opt-in and demo requests POST to the founder dashboard (`localhost:3001` locally)
+- **Mostly static**: newsletter and demo forms POST to this site; the server forwards to the founder dashboard
 
