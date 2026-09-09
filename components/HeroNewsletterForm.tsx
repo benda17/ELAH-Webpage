@@ -15,7 +15,7 @@ export default function HeroNewsletterForm() {
 
     if (!consent) {
       setStatus("error");
-      setMessage("Check the box to confirm you want ELAH updates by email.");
+      setMessage("Check the box to confirm you want the ELAH weekly newsletter by email.");
       return;
     }
 
@@ -68,7 +68,7 @@ export default function HeroNewsletterForm() {
   return (
     <form onSubmit={onSubmit} className="mt-8 max-w-lg space-y-3">
       <p className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
-        Product updates
+        Weekly Newsletter
       </p>
       <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
         <label className="sr-only" htmlFor="hero-newsletter-email">
@@ -101,8 +101,8 @@ export default function HeroNewsletterForm() {
           className="mt-0.5 h-4 w-4 shrink-0 accent-[#00A8FF]"
         />
         <span>
-          I agree to receive ELAH product updates by email. Required to join the
-          list — we will not add you without this.
+          I agree to receive the ELAH weekly newsletter by email. Required to join
+          the list — we will not add you without this.
         </span>
       </label>
       {message ? (
