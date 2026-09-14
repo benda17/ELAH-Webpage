@@ -34,8 +34,9 @@ export default function Problem() {
               The Intent Gap
             </h3>
             <p className="leading-relaxed text-[#3d4f6f]">
-              The divergence between declared intent and internal reasoning creates unacceptable
-              risk. Internal reasoning could drift toward unauthorized actions or policy violations.
+              The divergence between declared intent and internal reasoning shows up first in
+              B2B SaaS support and CRM operations: tickets, refunds, and CRM writes that no
+              longer match what the agent said it was doing.
             </p>
           </div>
 
@@ -47,8 +48,9 @@ export default function Problem() {
               Operating Blind
             </h3>
             <p className="leading-relaxed text-[#3d4f6f]">
-              Without visibility into reasoning, enterprises cannot validate that decision-making
-              aligns with security policies, compliance requirements, or business rules before execution.
+              Without visibility into reasoning, a company cannot check that a support or CRM
+              agent still matches declared intent — and company policy — before a ticket,
+              refund, or CRM write runs.
             </p>
           </div>
         </div>
@@ -58,8 +60,9 @@ export default function Problem() {
             The fundamental issue
           </p>
           <p className="text-lg leading-relaxed text-[#3d4f6f]">
-            By the time an agent executes a tool or generates output, the reasoning that led to that action may have
-            already violated policy. Post-mortem analysis cannot prevent damage.
+            By the time a support agent issues a refund or writes to CRM, the reasoning that led there may already
+            have diverged from company policy. After-the-fact analysis cannot undo the write. Banking and other
+            regulated workflows have the same gap — they are later verticals, not the first commercial story.
           </p>
         </div>
       </div>

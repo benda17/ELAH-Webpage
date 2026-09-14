@@ -1,9 +1,14 @@
 export default function Industries() {
   const industries = [
     {
+      title: "B2B SaaS CS/CRM",
+      description: "Support and CRM agents call tools that open tickets, issue refunds, and write customer records. An agent can declare a help-desk goal and internally reason toward a write that company policy would deny or send to confirm. ELAH scores genuine intent before that tool runs. Allow, deny, or confirm stays with the tenant.",
+      failure: "Agent reasons toward an out-of-policy refund or CRM overwrite. Without a pre-tool intent score, the write can run before anyone sees the gap.",
+    },
+    {
       title: "Banking & Finance",
-      description: "An autonomous agent processing loan applications could internally reason toward approving a loan that violates credit policy. Without reasoning-level validation, the agent might execute a transaction that breaches regulatory requirements, exposes the institution to compliance violations, or creates financial risk.",
-      failure: "Agent approves high-risk loan due to reasoning drift, violating internal credit policies and regulatory requirements.",
+      description: "A later vertical — and a current demo in the ELAH Banking Simulation. An autonomous agent processing a transfer or loan could internally reason toward an action that company policy would deny or send to confirm. Without a pre-tool intent score, that reasoning is invisible until after the tool runs.",
+      failure: "Agent reasons toward a transfer or credit decision that diverges from company policy. ELAH scores that intent; it does not allow, block, or execute.",
     },
     {
       title: "Pharma & Healthcare",
@@ -33,7 +38,12 @@ export default function Industries() {
           <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
             Industry Red-Line Risks
           </h2>
-          <div className="h-1 w-24 bg-elah-blue/50" />
+          <p className="mt-6 max-w-2xl text-gray-400 leading-relaxed">
+            Commercially we start with B2B SaaS customer support and CRM
+            operations. Banking and other regulated sectors remain later
+            verticals — and demo examples of the same pre-tool score.
+          </p>
+          <div className="h-1 w-24 bg-elah-blue/50 mt-6" />
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">

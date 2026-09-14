@@ -52,8 +52,8 @@ export default function Solution() {
                   The blind spot:
                 </p>
                 <p className="text-lg text-white/90 leading-relaxed">
-                  By the time an agent executes a tool or generates output, the reasoning that led to that action may have already
-                  violated policy. Post-mortem analysis cannot prevent damage.
+                  By the time a support or CRM agent issues a refund or writes a customer record, the reasoning that led there may already
+                  have diverged from company policy. After-the-fact analysis cannot undo the write.
                 </p>
               </div>
             </div>
@@ -81,10 +81,9 @@ export default function Solution() {
                 <h3 className="text-2xl font-semibold text-[#0a1024]">Intent Anchoring</h3>
               </div>
               <p className="leading-relaxed text-[#3d4f6f]">
-                ELAH establishes a baseline of declared intent before agent execution begins.
-                This intent is anchored to security policies, compliance rules, and business
-                constraints. The agent&apos;s reasoning process is then continuously validated
-                against this anchored intent.
+                ELAH establishes a baseline of declared intent before the agent calls a tool —
+                a ticket update, a refund, a CRM write. That intent is scored against company
+                policy. Allow, deny, or confirm belongs to the tenant, not to ELAH.
               </p>
             </div>
 
@@ -97,9 +96,8 @@ export default function Solution() {
               </div>
               <p className="leading-relaxed text-[#3d4f6f]">
                 ELAH operates in parallel to the agent, tracking its reasoning process without
-                interfering with execution. By analyzing the agent&apos;s internal state, decision
-                points, and reasoning chains, ELAH builds a real-time model of what the agent
-                intends to do and why.
+                interfering with execution. It builds a real-time model of what the agent
+                intends to do and why — then scores that genuine intent before the tool runs.
               </p>
             </div>
 
@@ -111,10 +109,9 @@ export default function Solution() {
                 <h3 className="text-2xl font-semibold text-[#0a1024]">Semantic Verification</h3>
               </div>
               <p className="leading-relaxed text-[#3d4f6f]">
-                Before any tool execution, ELAH performs semantic verification of the agent&apos;s
-                reasoning. It compares the agent&apos;s internal reasoning against the anchored
-                intent, detecting divergence, policy violations, or reasoning drift. This verification
-                happens at the reasoning level, not just at the action level.
+                Before any tool execution, ELAH scores the agent&apos;s reasoning against declared
+                intent. Divergence, drift, or a mismatch with company policy shows up in the score —
+                at the reasoning level, not after the ticket, refund, or CRM write has already run.
               </p>
             </div>
 
@@ -123,13 +120,12 @@ export default function Solution() {
                 <div className="mr-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-elah-blue bg-elah-blue/15">
                   <span className="text-2xl font-bold text-elah-blue mono">4</span>
                 </div>
-                <h3 className="text-2xl font-semibold text-[#0a1024]">Enforcement + Human Escalation</h3>
+                <h3 className="text-2xl font-semibold text-[#0a1024]">Score, then company policy</h3>
               </div>
               <p className="leading-relaxed text-[#3d4f6f]">
-                When ELAH detects reasoning that violates intent or policy, it can block execution
-                before any tool is called. For ambiguous cases, ELAH escalates to human review
-                while maintaining the agent&apos;s reasoning context. This ensures that autonomous
-                agents operate within defined boundaries while preserving operational efficiency.
+                ELAH returns an intent score before the tool runs. Company policy decides allow,
+                deny, or confirm. ELAH never allows, blocks, or executes. Ambiguous cases stay
+                on the tenant&apos;s confirm path, with the reasoning context attached to the score.
               </p>
             </div>
           </div>

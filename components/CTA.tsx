@@ -8,14 +8,15 @@ export default function CTA() {
             Get Started
           </span>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-            Deploy Autonomous Agents with Confidence
+            Score support and CRM agents before they write
           </h2>
           <div className="h-1 w-24 bg-elah-blue/50 mx-auto mb-8" />
         </div>
         
         <p className="text-xl text-gray-400 mb-12 leading-relaxed max-w-2xl mx-auto">
-          ELAH provides reasoning-level security for agentic AI, enabling enterprises to deploy
-          autonomous agents while maintaining control over intent and policy compliance.
+          ELAH scores genuine intent before tickets, refunds, and CRM tools run.
+          Company policy stays with you — ELAH never allows, blocks, or executes.
+          Banking remains a later vertical and a demo example.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

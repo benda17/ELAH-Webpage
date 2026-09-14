@@ -47,16 +47,16 @@ export default function ScoreConsole() {
             <p className="mono text-[11px] uppercase tracking-[0.16em] text-white/40">
               Planned tool
             </p>
-            <p className="mt-1 font-medium text-white">create_external_transfer</p>
+            <p className="mt-1 font-medium text-white">issue_refund</p>
             <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/70">
-              “Send 2,400 to the contractor on the approved invoice.”
+              “Issue the refund and update the account in CRM.”
             </p>
             <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-[13px]">
               <div>
                 <dt className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
                   Intent
                 </dt>
-                <dd className="mt-0.5 text-white">external_transfer</dd>
+                <dd className="mt-0.5 text-white">refund</dd>
               </div>
               <div>
                 <dt className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
@@ -66,7 +66,7 @@ export default function ScoreConsole() {
               </div>
               <div>
                 <dt className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
-                  Bank policy
+                  Company policy
                 </dt>
                 <dd className="mt-0.5 text-white">needs confirmation</dd>
               </div>

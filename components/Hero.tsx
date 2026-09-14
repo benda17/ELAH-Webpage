@@ -27,9 +27,9 @@ export default function Hero() {
             <span className="text-elah-blue">before</span> the tool runs.
           </h1>
           <p className="mt-7 max-w-lg text-[17px] leading-relaxed text-white/70 sm:text-lg">
-            ELAH closes the Intent Gap by validating an agent&apos;s reasoning
-            before tool execution. Enterprises can deploy autonomous agents
-            knowing internal reasoning aligns with declared intent.
+            ELAH scores genuine intent before a B2B SaaS support or CRM agent
+            runs a tool — tickets, refunds, CRM writes. Company policy decides
+            allow, deny, or confirm. ELAH never allows, blocks, or executes.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -66,7 +66,7 @@ export default function Hero() {
               <dt className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
                 Authority
               </dt>
-              <dd className="mt-1 text-sm text-white">Bank policy</dd>
+              <dd className="mt-1 text-sm text-white">Company policy</dd>
             </div>
           </dl>
         </div>
@@ -74,8 +74,8 @@ export default function Hero() {
         <div className="animate-slide-up">
           <ScoreConsole />
           <p className="mt-4 text-center text-[12px] text-white/35 lg:text-left">
-            Live product surface — genuine external transfer, scored before
-            execution.{" "}
+            ELAH CRM Simulation — a refund scored before the tool runs. ELAH
+            Banking Simulation remains a later-vertical demo.{" "}
             <a
               href="https://drive.google.com/file/d/1mFHntfcK0G3sXlwkATMkwZEYge90iL-R/view"
               target="_blank"

@@ -5,7 +5,7 @@ import DemoRequestForm from "@/components/DemoRequestForm";
 export const metadata: Metadata = {
   title: "Request a demo | ELAH",
   description:
-    "Book a 30-minute walkthrough of ELAH intent scoring before tool execution. Tell us who you are — we will schedule a time.",
+    "Book a 30-minute walkthrough of the ELAH CRM Simulation — genuine intent scored before tickets, refunds, and CRM writes. Tell us who you are — we will schedule a time.",
   alternates: { canonical: "/demo" },
 };
 
@@ -16,7 +16,7 @@ const POINTS = [
   },
   {
     title: "Fit for your stack",
-    body: "Bring the workflow you care about — support, CRM, or another agentic path.",
+    body: "Start with the ELAH CRM Simulation — tickets, refunds, CRM writes. The ELAH Banking Simulation is the later-vertical demo.",
   },
   {
     title: "No obligation",
@@ -47,7 +47,8 @@ export default function DemoPage() {
             </h1>
             <p className="mt-5 max-w-md text-[16px] leading-relaxed text-white/70">
               Tell us who you are. We reply within one business day to book a
-              30-minute walkthrough of intent scoring before a tool runs.
+              30-minute walkthrough of the ELAH CRM Simulation — genuine intent
+              scored before a support or CRM tool runs.
             </p>
             <ul className="mt-10 space-y-6">
               {POINTS.map((point) => (
