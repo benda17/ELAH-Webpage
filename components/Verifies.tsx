@@ -55,8 +55,8 @@ const REQUEST: [string, string][] = [
 ];
 
 export default function Verifies() {
-  const [hover, setHover] = useState<number | null>(null);
-  const lit = hover === null ? [] : (CHECKS[hover].lines as readonly number[]);
+  const [active, setActive] = useState<number | null>(null);
+  const lit = active === null ? [] : (CHECKS[active].lines as readonly number[]);
 
   return (
     <section id="verifies" className="relative scroll-mt-24 border-t border-white/5 px-6 py-28 sm:py-32">
@@ -71,20 +71,17 @@ export default function Verifies() {
         <div className="mt-14 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <ul className="grid gap-3 sm:grid-cols-2">
             {CHECKS.map((check, i) => (
-              <Reveal
-                as="li"
+              <li
                 key={check.name}
-                delay={i * 60}
+                onMouseEnter={() => setActive(i)}
                 className={`rounded-2xl border p-5 transition-colors duration-300 ${
-                  hover === i ? "border-[#1086FC]/60 bg-[#1086FC]/10" : "border-white/[0.07] bg-white/[0.025]"
+                  active === i ? "border-[#1086FC]/60 bg-[#1086FC]/10" : "border-white/[0.07] bg-white/[0.025]"
                 }`}
               >
-                <div onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}>
-                  <span className="mono text-[11px] text-[#8cc4ff]">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-2 text-[17px] font-semibold tracking-tight text-white">{check.name}</h3>
-                  <p className="mt-1.5 text-[14px] leading-relaxed text-white/55">{check.body}</p>
-                </div>
-              </Reveal>
+                <span className="mono text-[11px] text-[#8cc4ff]">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-2 text-[17px] font-semibold tracking-tight text-white">{check.name}</h3>
+                <p className="mt-1.5 text-[14px] leading-relaxed text-white/55">{check.body}</p>
+              </li>
             ))}
           </ul>
 
