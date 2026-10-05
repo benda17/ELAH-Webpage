@@ -1,42 +1,42 @@
+import { DaveSpot } from "./Dave";
+import Logo from "./Logo";
+import Reveal from "./Reveal";
+
 export default function CTA() {
   return (
-    <section id="cta" className="py-32 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-elah-blue/5 to-transparent pointer-events-none" />
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className="mb-8">
-          <span className="text-elah-blue text-sm font-medium tracking-wider uppercase mb-4 block">
-            Get Started
-          </span>
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-            Score support and CRM agents before they write
-          </h2>
-          <div className="h-1 w-24 bg-elah-blue/50 mx-auto mb-8" />
-        </div>
-        
-        <p className="text-xl text-gray-400 mb-12 leading-relaxed max-w-2xl mx-auto">
-          ELAH scores genuine intent before tickets, refunds, and CRM tools run.
-          Company policy stays with you — ELAH never allows, blocks, or executes.
-          Banking remains a later vertical and a demo example.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="/demo"
-            className="inline-block px-10 py-4 border-2 border-elah-blue bg-elah-blue/10 text-elah-blue hover:bg-elah-blue hover:text-black transition-all duration-300 font-medium text-lg"
-            aria-label="Request a demo"
-          >
-            Request a demo
-          </a>
-          <a
-            href="/#hero"
-            className="inline-block px-10 py-4 border-2 border-gray-700 text-gray-300 hover:border-gray-600 hover:text-white transition-all duration-300 font-medium text-lg"
-            aria-label="Learn More"
-          >
-            Learn More
-          </a>
-        </div>
+    <section id="cta" className="relative overflow-hidden border-t border-white/5 px-6 pb-10 pt-28 sm:pt-32">
+      <div className="mx-auto max-w-[1200px]">
+        <Reveal className="noise relative overflow-hidden rounded-[36px] border border-[#1086FC]/30 bg-[#07101f]">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-10 top-0 h-[640px] w-[640px] rounded-full blur-3xl"
+            style={{ background: "radial-gradient(circle, rgba(16,134,252,0.45), transparent 62%)" }}
+          />
+          <div aria-hidden className="grid-fade pointer-events-none absolute inset-0" />
+          <div className="relative grid items-center lg:grid-cols-[minmax(0,1fr)_auto]">
+            <div className="px-7 py-14 sm:px-14 sm:py-16 lg:py-20 lg:pl-16 lg:pr-6">
+              <h2 className="max-w-2xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
+                Make agent access verifiable before the protected action runs.
+              </h2>
+              <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-white/65">
+                Start with one narrow workflow. Keep the platform in control.
+              </p>
+              <a
+                href="/demo"
+                className="group mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-[#1086FC] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_40px_-8px_rgba(16,134,252,0.8)] transition hover:-translate-y-0.5 hover:bg-[#2a95ff]"
+              >
+                Talk to ELAH
+                <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+              </a>
+            </div>
+            <DaveSpot className="mx-auto mb-8 mt-2 w-[340px] sm:w-[440px] lg:mx-0 lg:mb-10 lg:mr-12 lg:mt-8 lg:w-[500px]" />
+          </div>
+        </Reveal>
       </div>
+      <footer className="mx-auto mt-16 flex max-w-[1200px] flex-col gap-4 border-t border-white/5 pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <Logo size="sm" />
+        <p className="text-sm text-white/40">Verified access for AI agents on the web.</p>
+      </footer>
     </section>
   );
 }
-

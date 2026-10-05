@@ -3,24 +3,24 @@ import Navigation from "@/components/Navigation";
 import DemoRequestForm from "@/components/DemoRequestForm";
 
 export const metadata: Metadata = {
-  title: "Request a demo | ELAH",
+  title: "Talk to ELAH",
   description:
-    "Book a 30-minute walkthrough of the ELAH CRM Simulation — genuine intent scored before tickets, refunds, and CRM writes. Tell us who you are — we will schedule a time.",
+    "Walk through one narrow agent workflow. ELAH verifies delegated, scoped access. The platform stays in control.",
   alternates: { canonical: "/demo" },
 };
 
 const POINTS = [
   {
-    title: "30 minutes, live product",
-    body: "We score a real agent path before a tool runs. Not a slide deck.",
+    title: "One narrow workflow",
+    body: "A customer's own tickets, an approved comment, or one bounded setting. Not a platform-wide credential.",
   },
   {
-    title: "Fit for your stack",
-    body: "Start with the ELAH CRM Simulation — tickets, refunds, CRM writes. The ELAH Banking Simulation is the later-vertical demo.",
+    title: "The platform decides",
+    body: "ELAH verifies the agent, the grant, and the scope. Your policy proceeds, asks for fresh approval, limits, or rejects.",
   },
   {
     title: "No obligation",
-    body: "We reply within one business day to pick a time. Policy stays with you; ELAH never allows, blocks, or executes.",
+    body: "We reply within one business day to pick a time.",
   },
 ];
 
@@ -40,15 +40,14 @@ export default function DemoPage() {
         <div className="relative z-10 mx-auto grid w-full max-w-[1080px] items-start gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <div>
             <p className="mono text-[11px] uppercase tracking-[0.22em] text-elah-blue">
-              Request a demo
+              Talk to ELAH
             </p>
             <h1 className="mt-4 max-w-lg text-[2.4rem] font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
-              See intent scored before the tool runs.
+              Make agent access verifiable before the protected action runs.
             </h1>
             <p className="mt-5 max-w-md text-[16px] leading-relaxed text-white/70">
-              Tell us who you are. We reply within one business day to book a
-              30-minute walkthrough of the ELAH CRM Simulation — genuine intent
-              scored before a support or CRM tool runs.
+              Tell us who you are. We reply within one business day to walk
+              through one narrow workflow, with your platform still in control.
             </p>
             <ul className="mt-10 space-y-6">
               {POINTS.map((point) => (

@@ -12,7 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         elah: {
-          blue: "#00A8FF",
+          blue: "#1086FC",
           "blue-dark": "#0091E6",
           "blue-light": "#1AB8FF",
           gray: "#4A4A4A",
