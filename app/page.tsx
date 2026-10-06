@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Dave from "@/components/Dave";
 import Hero from "@/components/Hero";
 import CaptchaBreak from "@/components/CaptchaBreak";
+import Apact from "@/components/Apact";
 import Shift from "@/components/Shift";
 import AccessFlow from "@/components/AccessFlow";
 import Verifies from "@/components/Verifies";
@@ -15,6 +16,7 @@ export default function Home() {
       <Dave />
       <Hero />
       <CaptchaBreak />
+      <Apact />
       <Shift />
       <AccessFlow />
       <Verifies />

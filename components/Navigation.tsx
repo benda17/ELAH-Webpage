@@ -5,6 +5,7 @@ import Logo from "./Logo";
 
 const LINKS = [
   { href: "/#captcha", label: "Why CAPTCHAs fail" },
+  { href: "/#apact", label: "APACT" },
   { href: "/#flow", label: "How it works" },
   { href: "/#verifies", label: "Verification" },
 ];
