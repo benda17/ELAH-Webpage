@@ -110,6 +110,20 @@ body:has(main.landing)::before {
   animation: daveShadow 4.6s ease-in-out infinite;
 }
 
+.dave-figure {
+  animation: daveBob 3.06s ease-in-out infinite;
+}
+
+@keyframes daveBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 .dave-lid {
   border-radius: 50% 50% 50% 50% / 58% 58% 42% 42%;
   border-bottom: 2.5px solid #4a2412;
@@ -240,6 +254,7 @@ body:has(main.landing)::before {
 @media (prefers-reduced-motion: reduce) {
   .dave-puppet,
   .dave-part,
+  .dave-figure,
   .dave-shadow,
   .dave-orb,
   .animate-float-slow,

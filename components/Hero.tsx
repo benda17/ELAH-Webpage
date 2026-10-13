@@ -116,6 +116,7 @@ export default function Hero() {
           <h1 className="mt-7 max-w-xl text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-[3.35rem]">
             Soon, web browsers will be built for agents.
           </h1>
+          <DaveSpot className="mx-auto mt-6 w-full max-w-[300px] sm:max-w-[380px] lg:hidden" />
           <div className="mt-8 max-w-lg space-y-5">
             <p className="text-[1.15rem] leading-snug text-white/45 sm:text-xl">
               The CAPTCHA question won’t be
@@ -153,7 +154,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-[680px] flex-col items-center sm:flex-row sm:items-end sm:justify-center lg:justify-end">
+        <div className="relative mx-auto flex w-full max-w-[680px] flex-col items-center lg:items-end">
           <div aria-hidden className="absolute bottom-[4%] left-[11%] hidden aspect-square w-[78%] rounded-full border border-[#1086FC]/20 sm:block" />
           <div aria-hidden className="absolute bottom-[12%] left-[19%] hidden aspect-square w-[62%] rounded-full border border-dashed border-white/10 [animation:spin_60s_linear_infinite] sm:block" />
           <div
@@ -162,10 +163,10 @@ export default function Hero() {
             style={{ background: "radial-gradient(circle, rgba(16,134,252,0.5), transparent 65%)" }}
           />
 
-          <DaveSpot className="relative w-[340px] sm:w-[480px] lg:w-[560px]" />
+          <DaveSpot className="hidden w-full max-w-[560px] lg:block" />
 
           <aside
-            className="glass relative z-[45] -mt-6 w-full max-w-[340px] rounded-2xl p-4 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] sm:absolute sm:bottom-8 sm:left-0 sm:mt-0 sm:w-[280px]"
+            className="glass relative mt-8 w-full max-w-[340px] rounded-2xl p-4 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] lg:mt-12 lg:w-[280px] lg:self-center"
             aria-live="polite"
           >
             <div className="flex items-center justify-between">

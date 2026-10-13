@@ -29,7 +29,7 @@ export default function CTA() {
                 <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
               </a>
             </div>
-            <DaveSpot className="order-2 mx-auto mb-8 mt-2 w-[340px] sm:w-[440px] lg:order-1 lg:mx-0 lg:mb-10 lg:ml-10 lg:mr-2 lg:mt-8 lg:w-[500px]" />
+            <DaveSpot className="order-2 mx-auto mb-8 mt-2 w-full max-w-[340px] sm:max-w-[440px] lg:order-1 lg:mx-0 lg:mb-10 lg:ml-10 lg:mr-2 lg:mt-8 lg:w-[500px] lg:max-w-[500px]" />
           </div>
         </Reveal>
       </div>
