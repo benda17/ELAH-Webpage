@@ -114,6 +114,33 @@ body:has(main.landing)::before {
   animation: daveBob 3.06s ease-in-out infinite;
 }
 
+.dave-peek {
+  position: absolute;
+  z-index: 4;
+  right: max(0px, calc((100% - 76rem) / 2));
+  top: 6.75rem;
+  width: 168px;
+  pointer-events: none;
+  transform-origin: 88% 28%;
+  animation: davePeek 6.6s cubic-bezier(0.16, 0.84, 0.22, 1) infinite;
+  filter: drop-shadow(-14px 18px 22px rgba(0, 0, 0, 0.42));
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .dave-peek {
+    width: 210px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dave-peek {
+    top: 15%;
+    width: min(30vw, 340px);
+    animation-name: davePeekWide;
+  }
+}
+
 @keyframes daveBob {
   0%,
   100% {
@@ -121,6 +148,45 @@ body:has(main.landing)::before {
   }
   50% {
     transform: translateY(-4px);
+  }
+}
+
+@keyframes davePeek {
+  0%,
+  15% {
+    transform: translate3d(108%, 10px, 0) rotate(16deg);
+  }
+  23% {
+    transform: translate3d(22%, 0, 0) rotate(-7deg);
+  }
+  31%,
+  68% {
+    transform: translate3d(38%, 0, 0) rotate(-2deg);
+  }
+  82%,
+  100% {
+    transform: translate3d(112%, 12px, 0) rotate(18deg);
+  }
+}
+
+@keyframes davePeekWide {
+  0%,
+  12% {
+    transform: translate3d(86%, 16px, 0) rotate(12deg);
+  }
+  20% {
+    transform: translate3d(-2%, 0, 0) rotate(-8deg);
+  }
+  28%,
+  70% {
+    transform: translate3d(14%, 0, 0) rotate(-3deg);
+  }
+  78% {
+    transform: translate3d(8%, -4px, 0) rotate(0deg);
+  }
+  88%,
+  100% {
+    transform: translate3d(92%, 18px, 0) rotate(14deg);
   }
 }
 
@@ -255,12 +321,17 @@ body:has(main.landing)::before {
   .dave-puppet,
   .dave-part,
   .dave-figure,
+  .dave-peek,
   .dave-shadow,
   .dave-orb,
   .animate-float-slow,
   .animate-stamp,
   .animate-caret {
     animation: none !important;
+  }
+
+  .dave-peek {
+    transform: translate3d(16%, 0, 0) rotate(-3deg);
   }
 
   .reveal {

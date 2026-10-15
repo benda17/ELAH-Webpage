@@ -83,12 +83,12 @@ export default function HeroNewsletterForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
-          className="min-h-[48px] flex-1 border border-white/20 bg-black/40 px-4 text-[15px] text-white outline-none placeholder:text-white/30 focus:border-elah-blue"
+          className="min-h-[48px] flex-1 rounded-full border border-white/15 bg-white/[0.04] px-5 text-[15px] text-white outline-none placeholder:text-white/30 focus:border-[#1086FC]"
         />
         <button
           type="submit"
           disabled={status === "saving"}
-          className="inline-flex min-h-[48px] items-center justify-center bg-white/10 px-5 text-[15px] font-medium text-white transition hover:bg-white/20 disabled:opacity-50"
+          className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/15 bg-white/[0.06] px-6 text-[15px] font-medium text-white transition hover:border-white/35 hover:bg-white/15 disabled:opacity-50"
         >
           {status === "saving" ? "Saving…" : "Subscribe"}
         </button>

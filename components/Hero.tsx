@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { DaveSpot } from "./Dave";
+import { DavePeek } from "./Dave";
+import HeroNewsletterForm from "./HeroNewsletterForm";
 
 const CHECKS = ["signature", "grant", "audience", "expiry", "nonce", "scope", "revocation"] as const;
 type Check = (typeof CHECKS)[number];
@@ -104,9 +105,11 @@ export default function Hero() {
         style={{ background: "radial-gradient(circle, rgba(88,80,236,0.35), transparent 65%)" }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8">
-        <div className="animate-slide-up">
-          <p className="mono inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.2em] text-[#8cc4ff]">
+      <DavePeek />
+
+      <div className="relative z-10 mx-auto grid w-full max-w-[1200px] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8">
+        <div className="animate-slide-up pr-16 sm:pr-24 lg:pr-0">
+          <p className="mono inline-flex max-w-[13.25rem] items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] text-[#8cc4ff] sm:max-w-none sm:tracking-[0.2em]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1086FC] opacity-70" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#1086FC]" />
@@ -116,7 +119,6 @@ export default function Hero() {
           <h1 className="mt-7 max-w-xl text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-[3.35rem]">
             Soon, web browsers will be built for agents.
           </h1>
-          <DaveSpot className="mx-auto mt-6 w-full max-w-[300px] sm:max-w-[380px] lg:hidden" />
           <div className="mt-8 max-w-lg space-y-5">
             <p className="text-[1.15rem] leading-snug text-white/45 sm:text-xl">
               The CAPTCHA question won’t be
@@ -146,7 +148,8 @@ export default function Hero() {
               See how verification works
             </a>
           </div>
-          <ul className="mono mt-12 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.16em] text-white/40">
+          <HeroNewsletterForm />
+          <ul className="mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.16em] text-white/40">
             <li>Signed requests</li>
             <li>Delegated grants</li>
             <li>Scoped actions</li>
@@ -154,19 +157,17 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-[680px] flex-col items-center lg:items-end">
-          <div aria-hidden className="absolute bottom-[4%] left-[11%] hidden aspect-square w-[78%] rounded-full border border-[#1086FC]/20 sm:block" />
-          <div aria-hidden className="absolute bottom-[12%] left-[19%] hidden aspect-square w-[62%] rounded-full border border-dashed border-white/10 [animation:spin_60s_linear_infinite] sm:block" />
+        <div className="relative mx-auto flex w-full max-w-[420px] items-center justify-center lg:mx-0 lg:min-h-[460px] lg:justify-end">
+          <div aria-hidden className="absolute left-1/2 top-1/2 hidden aspect-square w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#1086FC]/20 sm:block" />
+          <div aria-hidden className="absolute left-1/2 top-1/2 hidden aspect-square w-[104%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/10 [animation:spin_60s_linear_infinite] sm:block" />
           <div
             aria-hidden
-            className="absolute bottom-[8%] left-1/2 h-[58%] w-[58%] -translate-x-1/2 rounded-full blur-2xl"
-            style={{ background: "radial-gradient(circle, rgba(16,134,252,0.5), transparent 65%)" }}
+            className="absolute left-1/2 top-1/2 h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
+            style={{ background: "radial-gradient(circle, rgba(16,134,252,0.45), transparent 65%)" }}
           />
 
-          <DaveSpot className="hidden w-full max-w-[560px] lg:block" />
-
           <aside
-            className="glass relative mt-8 w-full max-w-[340px] rounded-2xl p-4 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] lg:mt-12 lg:w-[280px] lg:self-center"
+            className="glass relative z-10 mt-8 w-full max-w-[340px] rounded-2xl p-4 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] lg:mb-2 lg:mt-36 lg:w-[300px] lg:self-end"
             aria-live="polite"
           >
             <div className="flex items-center justify-between">

@@ -41,6 +41,22 @@ function useBlink() {
   return blink;
 }
 
+export function DavePeek({ className = "" }: { className?: string }) {
+  return (
+    <div className={`dave-peek ${className}`}>
+      <Image
+        src="/dave/cut/head.webp"
+        alt="Dave, the ELAH mascot, peeking in from the side"
+        width={819}
+        height={682}
+        priority
+        draggable={false}
+        className="pointer-events-none h-auto w-full select-none"
+      />
+    </div>
+  );
+}
+
 export function DaveSpot({ className = "" }: { className?: string }) {
   const blink = useBlink();
 
