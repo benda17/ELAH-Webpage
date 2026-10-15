@@ -108,7 +108,7 @@ export default function Hero() {
       <DavePeek />
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1200px] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8">
-        <div className="animate-slide-up pr-16 sm:pr-24 lg:pr-0">
+        <div className="animate-slide-up">
           <p className="mono inline-flex max-w-[13.25rem] items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] text-[#8cc4ff] sm:max-w-none sm:tracking-[0.2em]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1086FC] opacity-70" />

@@ -114,30 +114,31 @@ body:has(main.landing)::before {
   animation: daveBob 3.06s ease-in-out infinite;
 }
 
+/* The head crop is cut straight through the shirt along its right and bottom
+   edges. Those edges sit on the screen corner, with a small push past both
+   edges, so the cut is never on screen while he leans in. */
 .dave-peek {
-  position: absolute;
+  position: fixed;
   z-index: 4;
-  right: max(0px, calc((100% - 76rem) / 2));
-  top: 6.75rem;
-  width: 168px;
+  right: 0;
+  bottom: 0;
+  width: 240px;
   pointer-events: none;
-  transform-origin: 88% 28%;
+  transform-origin: 100% 100%;
   animation: davePeek 6.6s cubic-bezier(0.16, 0.84, 0.22, 1) infinite;
   filter: drop-shadow(-14px 18px 22px rgba(0, 0, 0, 0.42));
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
 @media (min-width: 640px) {
   .dave-peek {
-    width: 210px;
+    width: 340px;
   }
 }
 
 @media (min-width: 1024px) {
   .dave-peek {
-    top: 15%;
-    width: min(30vw, 340px);
-    animation-name: davePeekWide;
+    width: min(40vw, 520px);
   }
 }
 
@@ -153,40 +154,22 @@ body:has(main.landing)::before {
 
 @keyframes davePeek {
   0%,
-  15% {
-    transform: translate3d(108%, 10px, 0) rotate(16deg);
-  }
-  23% {
-    transform: translate3d(22%, 0, 0) rotate(-7deg);
-  }
-  31%,
-  68% {
-    transform: translate3d(38%, 0, 0) rotate(-2deg);
-  }
-  82%,
-  100% {
-    transform: translate3d(112%, 12px, 0) rotate(18deg);
-  }
-}
-
-@keyframes davePeekWide {
-  0%,
   12% {
-    transform: translate3d(86%, 16px, 0) rotate(12deg);
+    transform: translate3d(5%, 105%, 0) rotate(0deg);
   }
   20% {
-    transform: translate3d(-2%, 0, 0) rotate(-8deg);
+    transform: translate3d(5%, 1%, 0) rotate(-9deg);
   }
   28%,
   70% {
-    transform: translate3d(14%, 0, 0) rotate(-3deg);
+    transform: translate3d(5%, 2%, 0) rotate(-4deg);
   }
-  78% {
-    transform: translate3d(8%, -4px, 0) rotate(0deg);
+  77% {
+    transform: translate3d(5%, 2%, 0) rotate(-6deg);
   }
   88%,
   100% {
-    transform: translate3d(92%, 18px, 0) rotate(14deg);
+    transform: translate3d(5%, 105%, 0) rotate(0deg);
   }
 }
 
@@ -331,7 +314,7 @@ body:has(main.landing)::before {
   }
 
   .dave-peek {
-    transform: translate3d(16%, 0, 0) rotate(-3deg);
+    transform: translate3d(5%, 2%, 0) rotate(-4deg);
   }
 
   .reveal {
