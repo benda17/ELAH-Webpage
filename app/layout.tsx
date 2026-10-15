@@ -1,5 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  colorScheme: "dark",
+  themeColor: "#05070d",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.elahsecurity.com"),
@@ -16,9 +21,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ELAH" }],
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: [
+      { url: "/icon.svg?v=2", type: "image/svg+xml" },
+      { url: "/favicon-32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/icon-512.png?v=2", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon-32.png?v=2",
+    apple: "/apple-icon.png?v=2",
   },
   alternates: {
     canonical: "/",
@@ -41,7 +50,31 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // The site is already dark; dark-mode extensions that recolor it break the hero.
+  other: {
+    "darkreader-lock": "true",
+  },
 };
+
+// Dark Reader honors darkreader-lock only in its Dynamic mode. Static and
+// Filter modes paint an opaque background on every element, so undo them.
+const darkReaderGuard = `(function () {
+  var root = document.documentElement;
+  function strip() {
+    var mode = root.getAttribute("data-darkreader-mode");
+    if (mode !== "static" && mode !== "filter") return;
+    ["dark-reader-style", "dark-reader-svg"].forEach(function (id) {
+      var node = document.getElementById(id);
+      if (node) node.remove();
+    });
+    root.removeAttribute("data-darkreader-mode");
+  }
+  new MutationObserver(strip).observe(root, {
+    attributes: true,
+    attributeFilter: ["data-darkreader-mode"],
+  });
+  strip();
+})();`;
 
 export default function RootLayout({
   children,
@@ -49,7 +82,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: darkReaderGuard }} />
+      </head>
       <body>{children}</body>
     </html>
   );

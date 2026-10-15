@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: dark;
   --background: #0a1024;
   --foreground: #e7ecf7;
   --elah-blue: #1086fc;
@@ -118,27 +119,28 @@ body:has(main.landing)::before {
    edges. Those edges sit on the screen corner, with a small push past both
    edges, so the cut is never on screen while he leans in. */
 .dave-peek {
+  display: none;
   position: fixed;
   z-index: 4;
   right: 0;
   bottom: 0;
-  width: 240px;
+  width: clamp(240px, calc(57.7% - 517px), 520px);
   pointer-events: none;
   transform-origin: 100% 100%;
-  animation: davePeek 6.6s cubic-bezier(0.16, 0.84, 0.22, 1) infinite;
-  filter: drop-shadow(-14px 18px 22px rgba(0, 0, 0, 0.42));
+  transform: translate3d(5%, 2%, 0) rotate(-4deg);
+  animation:
+    davePeekIn 1.2s cubic-bezier(0.16, 0.84, 0.22, 1) 0.4s both,
+    davePeekIdle 6s ease-in-out 1.6s infinite;
+  filter: drop-shadow(0 0 26px rgba(16, 134, 252, 0.24));
   will-change: transform, opacity;
 }
 
-@media (min-width: 640px) {
+/* The hero card's right edge sits at 50% + 436px and Dave's hair reaches 87%
+   of his width in from the screen edge at full lean, which sets his width.
+   Below 1280px there is no corner clear of the hero copy and card. */
+@media (min-width: 1280px) {
   .dave-peek {
-    width: 340px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .dave-peek {
-    width: min(40vw, 520px);
+    display: block;
   }
 }
 
@@ -152,24 +154,25 @@ body:has(main.landing)::before {
   }
 }
 
-@keyframes davePeek {
-  0%,
-  12% {
+@keyframes davePeekIn {
+  0% {
     transform: translate3d(5%, 105%, 0) rotate(0deg);
   }
-  20% {
-    transform: translate3d(5%, 1%, 0) rotate(-9deg);
+  62% {
+    transform: translate3d(5%, 1%, 0) rotate(-7deg);
   }
-  28%,
-  70% {
+  100% {
     transform: translate3d(5%, 2%, 0) rotate(-4deg);
   }
-  77% {
-    transform: translate3d(5%, 2%, 0) rotate(-6deg);
-  }
-  88%,
+}
+
+@keyframes davePeekIdle {
+  0%,
   100% {
-    transform: translate3d(5%, 105%, 0) rotate(0deg);
+    transform: translate3d(5%, 2%, 0) rotate(-4deg);
+  }
+  50% {
+    transform: translate3d(5%, 1.2%, 0) rotate(-2.6deg);
   }
 }
 
@@ -311,10 +314,6 @@ body:has(main.landing)::before {
   .animate-stamp,
   .animate-caret {
     animation: none !important;
-  }
-
-  .dave-peek {
-    transform: translate3d(5%, 2%, 0) rotate(-4deg);
   }
 
   .reveal {

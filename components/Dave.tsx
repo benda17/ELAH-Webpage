@@ -83,7 +83,6 @@ export function DavePeek({ className = "" }: { className?: string }) {
         alt="Dave, the ELAH mascot, peeking up from the corner"
         width={819}
         height={682}
-        priority
         draggable={false}
         className="pointer-events-none h-auto w-full select-none"
       />
