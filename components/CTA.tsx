@@ -1,6 +1,7 @@
 import { DaveSpot } from "./Dave";
 import Logo from "./Logo";
 import Reveal from "./Reveal";
+import { SIGNUP_URL } from "@/lib/links";
 
 export default function CTA() {
   return (
@@ -16,18 +17,27 @@ export default function CTA() {
           <div className="relative grid items-center lg:grid-cols-[auto_minmax(0,1fr)]">
             <div className="order-1 px-7 py-14 sm:px-14 sm:py-16 lg:order-2 lg:py-20 lg:pl-8 lg:pr-16">
               <h2 className="max-w-2xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
-                Make agent access verifiable before the protected action runs.
+                Put APACT on your site in five minutes.
               </h2>
               <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-white/65">
-                Start with one narrow workflow. Keep the platform in control.
+                Free during the beta. One Cloudflare Worker, no code on your site,
+                and your first agent report today.
               </p>
-              <a
-                href="/demo"
-                className="group mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-[#1086FC] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_40px_-8px_rgba(16,134,252,0.8)] transition hover:-translate-y-0.5 hover:bg-[#2a95ff]"
-              >
-                Talk to ELAH
-                <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
-              </a>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href={SIGNUP_URL}
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#1086FC] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_40px_-8px_rgba(16,134,252,0.8)] transition hover:-translate-y-0.5 hover:bg-[#2a95ff]"
+                >
+                  Get started free
+                  <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+                </a>
+                <a
+                  href="/demo"
+                  className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-[15px] font-medium text-white/85 transition hover:border-white/35 hover:text-white"
+                >
+                  Talk to ELAH
+                </a>
+              </div>
             </div>
             <DaveSpot className="order-2 mx-auto mb-8 mt-2 w-full max-w-[340px] sm:max-w-[440px] lg:order-1 lg:mx-0 lg:mb-10 lg:ml-10 lg:mr-2 lg:mt-8 lg:w-[500px] lg:max-w-[500px]" />
           </div>
@@ -35,7 +45,12 @@ export default function CTA() {
       </div>
       <footer className="mx-auto mt-16 flex max-w-[1200px] flex-col gap-4 border-t border-white/5 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <Logo size="sm" />
-        <p className="text-sm text-white/40">Verified access for AI agents on the web.</p>
+        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/40">
+          <a href="/pricing" className="hover:text-white">Pricing</a>
+          <a href="/install" className="hover:text-white">Install</a>
+          <a href="/terms" className="hover:text-white">Beta terms</a>
+          <a href="/privacy" className="hover:text-white">Privacy</a>
+        </nav>
       </footer>
     </section>
   );

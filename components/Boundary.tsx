@@ -1,18 +1,18 @@
 import Reveal from "./Reveal";
 
 const PROVES = [
-  "This request was signed by a known agent key",
-  "A principal delegated this action to that agent",
-  "The grant names this site, tenant, and scope",
-  "The request is fresh and has not been replayed",
-  "The grant has not been revoked",
+  "Whether a visitor is likely a person or an agent, and why",
+  "The task an agent revealed through what it did, part by part",
+  "Whether it held to that task when your site pushed back",
+  "Whether it was honest about what it is",
+  "Who made each decision: the agent alone, or a person",
 ];
 
 const DOES_NOT = [
-  "Read an agent’s private reasoning",
-  "Replace the platform’s own policy or IAM",
-  "Execute the protected action for you",
-  "Act as a global registry of every agent",
+  "Read an agent’s private reasoning or its prompt",
+  "Ask agents to fill in forms, or show people a puzzle",
+  "Keep anything a visitor types",
+  "Decide for you: verdicts are evidence, still being tuned in the beta",
 ];
 
 export default function Boundary() {
@@ -22,17 +22,17 @@ export default function Boundary() {
         <Reveal>
           <p className="mono text-[11px] uppercase tracking-[0.22em] text-[#8cc4ff]">The product boundary</p>
           <h2 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
-            ELAH verifies delegated, scoped access.
+            ELAH reports. Your site decides.
           </h2>
           <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/60">
-            It does not claim to read an agent’s private reasoning or replace the
-            platform’s own policy.
+            APACT is report-only. Its verdicts were measured on simulated agents
+            and are being tuned on real traffic during the free beta.
           </p>
         </Reveal>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           <Reveal className="glass glow-blue rounded-3xl p-7">
-            <p className="mono text-[10px] uppercase tracking-[0.2em] text-[#8cc4ff]">ELAH can prove</p>
+            <p className="mono text-[10px] uppercase tracking-[0.2em] text-[#8cc4ff]">ELAH shows you</p>
             <ul className="mt-6 space-y-4">
               {PROVES.map((p) => (
                 <li key={p} className="flex gap-3 text-[16px] leading-snug text-white">
