@@ -36,8 +36,8 @@ const SECTIONS = [
         </p>
         <p>
           From this we produce a summary of each visit for the website owner: whether the visitor was likely a person or an
-          agent, and for agents their task, loyalty, honesty and who made each decision. The summary is kept for up to 90
-          days. For these visitors the website owner decides why APACT is used, and ELAH processes the data for them.
+          agent, and for agents their task, loyalty, honesty and who made each decision. For these
+          visitors the website owner decides why APACT is used, and ELAH processes the data for them.
         </p>
       </>
     ),
