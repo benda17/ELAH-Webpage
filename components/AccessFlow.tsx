@@ -5,42 +5,43 @@ import Reveal from "./Reveal";
 
 const STEPS = [
   {
-    name: "Discover",
-    body: "The protected platform declares how it accepts agent access and which scopes it supports.",
+    name: "Install",
+    body: "Add ELAH's Cloudflare Worker to your domain. It serves ELAH under your own address, so careful agents don't stop at a third-party redirect.",
   },
   {
-    name: "Approve",
-    body: "The user or organization approves a narrow task in the platform's consent experience.",
+    name: "Observe",
+    body: "A small script reports what visitors do on your pages: link and field names, counts and timings. Never what anyone types.",
   },
   {
-    name: "Delegate",
-    body: "A short-lived grant is created for the agent key, target site, tenant, permitted actions, and limits.",
+    name: "Tell apart",
+    body: "People pass silently. Agents are recognised from evidence they don't write themselves: signed agent identities, your bot manager's score, how input arrives.",
   },
   {
-    name: "Sign",
-    body: "The agent signs each protected request and presents the grant.",
+    name: "Rebuild",
+    body: "The agent's task is rebuilt from what it does: the parameters it writes into links, the filters it sets, the options it picks over others.",
   },
   {
-    name: "Verify",
-    body: "ELAH checks signature, issuer, audience, expiry, nonce freshness, scope, resource constraints, action binding, and revocation.",
+    name: "Test",
+    body: "Agent-only forks (an upgrade note, a pre-ticked sharing box) show whether it holds to its user's task under pressure: held, broke, slipped or untested.",
+  },
+  {
+    name: "Check",
+    body: "Its honesty: a visitor that claims to be a person while its input says otherwise is caught, and so is input dressed up to look human.",
   },
   {
     name: "Decide",
-    body: "The partner applies its own business policy: proceed, require fresh approval, limit, or reject.",
-  },
-  {
-    name: "Revoke",
-    body: "The principal or platform can withdraw future access. ELAH records the authorization and the attempted protected action.",
+    body: "Your site gets signed signals and your own policy for each step (allow, check, or a person must confirm). ELAH reports; your site decides.",
   },
 ] as const;
 
 const CHAIN = [
-  "Principal",
-  "Delegated grant",
-  "Agent public key",
-  "Protected site",
-  "Permitted action",
-  "Signed request",
+  "Visitor",
+  "What it does",
+  "Rebuilt task",
+  "Loyalty",
+  "Honesty",
+  "Signed signals",
+  "Your policy",
 ] as const;
 
 export default function AccessFlow() {
@@ -64,12 +65,12 @@ export default function AccessFlow() {
         <Reveal>
           <p className="mono text-[11px] uppercase tracking-[0.22em] text-[#8cc4ff]">How ELAH works</p>
           <h2 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
-            A grant, a signature, then the platform decides.
+            Watch, rebuild the task, test it. Then your site decides.
           </h2>
           <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/60">
-            ELAH sits where a protected action is about to run. Delegation,
-            verification, and the platform’s own decision are the steps that
-            carry the trust.
+            ELAH sits in front of your pages. It asks nothing of anyone. It
+            works out what each agent was sent to do, and whether it is still
+            doing that.
           </p>
         </Reveal>
 
@@ -147,8 +148,8 @@ export default function AccessFlow() {
             ))}
           </ol>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/50">
-            Every link matters. A grant for another site, tenant, agent key,
-            action, or time window fails verification.
+            Every step is evidence. ELAH signs the signals your site receives, so
+            they can&apos;t be altered on the way to your checkout.
           </p>
         </Reveal>
       </div>

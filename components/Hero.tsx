@@ -3,58 +3,62 @@
 import { useEffect, useState } from "react";
 import { DavePeek } from "./Dave";
 import HeroNewsletterForm from "./HeroNewsletterForm";
+import { SIGNUP_URL } from "@/lib/links";
 
-const CHECKS = ["signature", "grant", "audience", "expiry", "nonce", "scope", "revocation"] as const;
+const CHECKS = ["visitor", "task", "forks", "loyalty", "honesty", "decision"] as const;
 type Check = (typeof CHECKS)[number];
 
+// What ELAH reports for one visit (the formless gate's signed signals). `stopAt` ends a person's visit early:
+// people pass silently, so nothing past the visitor check runs.
 type Scenario = {
-  agent: string;
-  request: string;
-  action: string;
+  visitor: string;
+  page: string;
+  task: string;
   failAt?: Check;
-  status: "verified" | "rejected" | "step_up_required";
+  stopAt?: Check;
+  status: "admit" | "test_further" | "blocked" | "passed_human";
   reason: string;
 };
 
 const SCENARIOS: Scenario[] = [
   {
-    agent: "support-agent · acme",
-    request: "POST /api/tickets",
-    action: "ticket.create",
-    status: "verified",
-    reason: "scope_ok",
+    visitor: "agent · signed",
+    page: "/rooms?freeCancellation=1&maxPrice=180",
+    task: "refundable · ≤ $180 · 2 guests",
+    status: "admit",
+    reason: "loyalty held · honest",
   },
   {
-    agent: "unknown · headless",
-    request: "POST /api/tickets",
-    action: "ticket.create",
-    failAt: "grant",
-    status: "rejected",
-    reason: "no_valid_grant",
+    visitor: "person",
+    page: "/rooms",
+    task: "—",
+    stopAt: "visitor",
+    status: "passed_human",
+    reason: "nothing shown, nothing asked",
   },
   {
-    agent: "ops-agent · acme",
-    request: "PATCH /api/settings/sso",
-    action: "settings.update",
-    failAt: "scope",
-    status: "step_up_required",
-    reason: "fresh_approval_required",
+    visitor: "agent · unsigned",
+    page: "/rooms/royal-suite",
+    task: "refundable · ≤ $180",
+    failAt: "loyalty",
+    status: "blocked",
+    reason: "broke_revealed_task",
   },
   {
-    agent: "support-agent · acme",
-    request: "POST /api/tickets",
-    action: "ticket.create",
-    failAt: "nonce",
-    status: "rejected",
-    reason: "nonce_reused",
+    visitor: "agent · claims person",
+    page: "/checkout",
+    task: "monthly plan · 5 seats",
+    failAt: "honesty",
+    status: "blocked",
+    reason: "false_person_claim",
   },
   {
-    agent: "billing-agent · acme",
-    request: "GET /api/invoices",
-    action: "invoice.read",
-    failAt: "audience",
-    status: "rejected",
-    reason: "audience_mismatch",
+    visitor: "agent · signed",
+    page: "/plans?billing=monthly",
+    task: "monthly · ≤ $120",
+    failAt: "forks",
+    status: "test_further",
+    reason: "loyalty untested",
   },
 ];
 
@@ -65,7 +69,11 @@ export default function Hero() {
   const [index, setIndex] = useState(0);
   const [step, setStep] = useState(0);
   const s = SCENARIOS[index];
-  const stopAt = s.failAt ? CHECKS.indexOf(s.failAt) + 1 : CHECKS.length;
+  const stopAt = s.failAt
+    ? CHECKS.indexOf(s.failAt) + 1
+    : s.stopAt
+      ? CHECKS.indexOf(s.stopAt) + 1
+      : CHECKS.length;
   const done = step > stopAt;
 
   useEffect(() => {
@@ -84,7 +92,7 @@ export default function Hero() {
   }, [step, done]);
 
   const tone =
-    s.status === "verified" ? "emerald" : s.status === "step_up_required" ? "amber" : "rose";
+    s.status === "admit" || s.status === "passed_human" ? "emerald" : s.status === "test_further" ? "amber" : "rose";
   const badge = {
     emerald: "border-emerald-400/40 bg-emerald-400/10 text-emerald-300",
     amber: "border-amber-300/40 bg-amber-300/10 text-amber-200",
@@ -114,7 +122,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1086FC] opacity-70" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#1086FC]" />
             </span>
-            ELAH — Verified agent access
+            ELAH APACT — Free beta
           </p>
           <h1 className="mt-7 max-w-xl text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-[3.35rem]">
             Soon, web browsers will be built for agents.
@@ -135,25 +143,25 @@ export default function Hero() {
           </div>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="/demo"
+              href={SIGNUP_URL}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#1086FC] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_40px_-8px_rgba(16,134,252,0.8)] transition hover:-translate-y-0.5 hover:bg-[#2a95ff]"
             >
-              Talk to ELAH
+              Put APACT on your site
               <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
             </a>
             <a
               href="#flow"
               className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-[15px] font-medium text-white/85 transition hover:border-white/35 hover:text-white"
             >
-              See how verification works
+              See how it works
             </a>
           </div>
           <HeroNewsletterForm />
           <ul className="mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.16em] text-white/40">
-            <li>Signed requests</li>
-            <li>Delegated grants</li>
-            <li>Scoped actions</li>
-            <li>Revocable</li>
+            <li>Invisible to people</li>
+            <li>No questions for agents</li>
+            <li>Task · loyalty · honesty</li>
+            <li>You decide</li>
           </ul>
         </div>
 
@@ -171,16 +179,16 @@ export default function Hero() {
             aria-live="polite"
           >
             <div className="flex items-center justify-between">
-              <p className="mono text-[10px] uppercase tracking-[0.18em] text-[#8cc4ff]">Live verification</p>
+              <p className="mono text-[10px] uppercase tracking-[0.18em] text-[#8cc4ff]">Live screening</p>
               <span className="mono text-[10px] text-white/35">{String(index + 1).padStart(2, "0")}/05</span>
             </div>
             <div className="mono mt-3 rounded-lg border border-white/5 bg-black/40 px-3 py-2 text-[11px] leading-relaxed">
-              <p className="text-white/85">{s.request}</p>
+              <p className="truncate text-white/85">GET {s.page}</p>
               <p className="text-white/40">
-                agent <span className="text-white/70">{s.agent}</span>
+                visitor <span className="text-white/70">{s.visitor}</span>
               </p>
               <p className="text-white/40">
-                action <span className="text-[#8cc4ff]">{s.action}</span>
+                task <span className="text-[#8cc4ff]">{s.task}</span>
               </p>
             </div>
             <ul className="mono mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-[11px]">
@@ -207,11 +215,11 @@ export default function Hero() {
               })}
             </ul>
             <div className={`mono mt-3 rounded-lg border px-3 py-2 text-[11px] leading-snug transition-all duration-300 ${done ? badge : "border-white/5 bg-white/[0.02] text-white/30"}`}>
-              <p className="font-semibold">{done ? s.status : "verifying…"}</p>
+              <p className="font-semibold">{done ? s.status : "watching…"}</p>
               <p className="opacity-75">{done ? s.reason : "\u00a0"}</p>
             </div>
             <p className="mt-2.5 text-[10.5px] leading-snug text-white/35">
-              A result for the platform. Not an execution command.
+              Signed evidence for your site. Your policy decides.
             </p>
           </aside>
         </div>

@@ -5,18 +5,18 @@ import DemoRequestForm from "@/components/DemoRequestForm";
 export const metadata: Metadata = {
   title: "Talk to ELAH",
   description:
-    "Walk through one narrow agent workflow. ELAH verifies delegated, scoped access. The platform stays in control.",
+    "Walk through APACT on your own site: what AI agents are doing there, and whether they stay loyal to their users.",
   alternates: { canonical: "/demo" },
 };
 
 const POINTS = [
   {
-    title: "One narrow workflow",
-    body: "A customer's own tickets, an approved comment, or one bounded setting. Not a platform-wide credential.",
+    title: "Your own traffic",
+    body: "We put APACT on your site with you and read the first agent report together.",
   },
   {
-    title: "The platform decides",
-    body: "ELAH verifies the agent, the grant, and the scope. Your policy proceeds, asks for fresh approval, limits, or rejects.",
+    title: "You decide",
+    body: "ELAH reports each agent's task, loyalty and honesty. Your policy allows it, checks it, or asks a person to confirm.",
   },
   {
     title: "No obligation",
@@ -43,11 +43,11 @@ export default function DemoPage() {
               Talk to ELAH
             </p>
             <h1 className="mt-4 max-w-lg text-[2.4rem] font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
-              Make agent access verifiable before the protected action runs.
+              See what AI agents are doing on your site.
             </h1>
             <p className="mt-5 max-w-md text-[16px] leading-relaxed text-white/70">
-              Tell us who you are. We reply within one business day to walk
-              through one narrow workflow, with your platform still in control.
+              Tell us who you are. We reply within one business day. Prefer to
+              start alone? <a href="https://gate.elahsecurity.com/signup" className="text-[#8cc4ff] underline underline-offset-2">Get started free</a>.
             </p>
             <ul className="mt-10 space-y-6">
               {POINTS.map((point) => (

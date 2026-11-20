@@ -5,53 +5,50 @@ import Reveal from "./Reveal";
 
 const CHECKS = [
   {
-    name: "Agent identity",
-    body: "The request is signed by an identified agent public key.",
-    lines: [1, 6],
+    name: "Person or agent",
+    body: "A verdict with its evidence. People pass without seeing anything.",
+    lines: [0, 1],
   },
   {
-    name: "Delegated principal",
-    body: "A person or organization stands behind the grant.",
-    lines: [9],
+    name: "The rebuilt task",
+    body: "Each part of what its user asked for, with how strong the evidence is.",
+    lines: [3, 4],
   },
   {
-    name: "Site and tenant binding",
-    body: "The grant names this partner site and this tenant.",
-    lines: [10, 11],
+    name: "Loyalty under pressure",
+    body: "Whether it held to that task when your site offered it something else.",
+    lines: [5, 6],
   },
   {
-    name: "Action scope and limits",
-    body: "Permitted actions, resources, and optional count, value, or duration limits.",
-    lines: [12, 13],
+    name: "Honesty",
+    body: "Whether its claims about itself match the evidence.",
+    lines: [7],
   },
   {
-    name: "Freshness and replay protection",
-    body: "A short expiry and a nonce, so a captured request cannot be reused.",
-    lines: [5, 14],
-  },
-  {
-    name: "Revocation state",
-    body: "A withdrawn grant fails before the protected action runs.",
+    name: "Who decided",
+    body: "At each payment or sign-up: the agent alone, or a person.",
     lines: [8],
+  },
+  {
+    name: "Your policy",
+    body: "What you allow agents to do, and what a person must confirm.",
+    lines: [10, 11],
   },
 ] as const;
 
 const REQUEST: [string, string][] = [
-  ["POST /api/tickets HTTP/1.1", "text-white"],
-  ["Signature-Agent: support-agent.acme.example", "text-white/70"],
-  ["Host: portal.example.com", "text-white/50"],
-  ["Content-Digest: sha-256=:X48E9q…:", "text-white/50"],
-  ["Signature-Input: sig=(\"@method\" \"@path\" \"content-digest\");", "text-white/50"],
-  ["  created=1791200400;expires=1791200520;nonce=\"b3k2…\"", "text-white/70"],
-  ["Signature: sig=:MEUCIQ…:", "text-white/70"],
+  ["elah_signals · signed ES256 · 5 min", "text-white"],
+  ["  visitor    agent_likely (signed agent, scripted input)", "text-white/70"],
   ["", ""],
-  ["Agent-Grant: grant_7f3a · status=active", "text-[#8cc4ff]"],
-  ["  principal  org_acme / user_maya", "text-white/70"],
-  ["  audience   portal.example.com", "text-white/70"],
-  ["  tenant     acme", "text-white/70"],
-  ["  actions    ticket.read, ticket.create", "text-white/70"],
-  ["  resource   customer.own · max 5", "text-white/70"],
-  ["  expires    120s", "text-white/70"],
+  ["  task       refundable · ≤ $180/night · 2 guests", "text-[#8cc4ff]"],
+  ["  from       freeCancellation=1, maxPrice=180 (made-up link)", "text-white/50"],
+  ["  forks      upgrade note: ignored · sharing box: unticked", "text-white/50"],
+  ["  loyalty    held", "text-white/70"],
+  ["  honesty    consistent (never claimed to be a person)", "text-white/70"],
+  ["  decision   pay → handed_to_person", "text-white/70"],
+  ["", ""],
+  ["  policy     browse: allow · account: check", "text-white/50"],
+  ["             pay: confirm", "text-white/50"],
 ];
 
 export default function Verifies() {
@@ -62,9 +59,9 @@ export default function Verifies() {
     <section id="verifies" className="relative scroll-mt-24 border-t border-white/5 px-6 py-28 sm:py-32">
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
-          <p className="mono text-[11px] uppercase tracking-[0.22em] text-[#8cc4ff]">What the platform verifies</p>
+          <p className="mono text-[11px] uppercase tracking-[0.22em] text-[#8cc4ff]">What you see for each agent</p>
           <h2 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
-            Bound to this agent, this principal, this action.
+            Its task, whether it kept to it, and who decided.
           </h2>
         </Reveal>
 
@@ -87,7 +84,7 @@ export default function Verifies() {
 
           <Reveal delay={120} className="glass relative overflow-hidden rounded-3xl">
             <div className="flex items-center justify-between border-b border-white/5 px-5 py-3">
-              <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/40">Signed agent request</p>
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/40">Signals your site receives</p>
               <p className="mono text-[10px] text-white/30">hover a check</p>
             </div>
             <pre className="mono overflow-x-auto px-2 py-4 text-[12px] leading-[1.9]">
@@ -103,8 +100,8 @@ export default function Verifies() {
               ))}
             </pre>
             <div className="mono flex items-center justify-between border-t border-white/5 bg-emerald-400/[0.06] px-5 py-3 text-[12px]">
-              <span className="text-emerald-300">verified · scope_ok</span>
-              <span className="text-white/35">platform decides next</span>
+              <span className="text-emerald-300">recommendation · admit</span>
+              <span className="text-white/35">your site decides</span>
             </div>
           </Reveal>
         </div>

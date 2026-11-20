@@ -3,15 +3,15 @@ import Reveal from "./Reveal";
 const ROWS = [
   {
     old: "Is this a human?",
-    next: "Is this a known agent with valid delegated permission?",
+    next: "What was this agent asked to do, and is it still doing that?",
   },
   {
     old: "Keep bots out",
-    next: "Let legitimate agents into bounded workflows",
+    next: "Let loyal agents through. Hold the ones that break their task",
   },
   {
-    old: "Session-based access",
-    next: "Short-lived, request-bound access",
+    old: "Puzzles for everyone",
+    next: "Invisible to people, no questions for agents",
   },
 ] as const;
 

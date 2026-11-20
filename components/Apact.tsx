@@ -125,9 +125,9 @@ export default function Apact() {
             }`}
           >
             <p>
-              A security check that verifies an AI agent has the user’s approval to perform a specific action—and that the request stays within the limits of that approval.
+              A check that tells your website what an AI agent was asked to do by its user, and whether it stayed true to that when your site pushed back. People never see it. Agents are never asked a thing: APACT reads what they do.
             </p>
-            <p>The name also sounds like “a pact”: an agreement defining what the agent is allowed to do.</p>
+            <p>The name also sounds like “a pact”: the agreement between a person and the agent acting for them. APACT checks the agent keeps it.</p>
           </div>
         </div>
       </div>

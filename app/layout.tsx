@@ -8,15 +8,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.elahsecurity.com"),
-  title: "ELAH | Verified access for AI agents",
+  title: "ELAH APACT | The CAPTCHA for AI agents",
   description:
-    "ELAH verifies that an AI agent is acting with valid, limited permission before a protected website or API action runs.",
+    "APACT tells your website what each AI agent was asked to do, whether it stayed loyal to its user, and whether it was honest. Invisible to people. Free beta.",
   keywords: [
     "AI agents",
-    "delegated access",
     "agent verification",
-    "scoped permissions",
-    "B2B SaaS",
+    "CAPTCHA for agents",
+    "APACT",
+    "bot management",
     "ELAH",
   ],
   authors: [{ name: "ELAH" }],
@@ -33,18 +33,18 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "ELAH | Verified access for AI agents",
+    title: "ELAH APACT | The CAPTCHA for AI agents",
     description:
-      "ELAH verifies that an AI agent is acting with valid, limited permission before a protected website or API action runs.",
+      "APACT tells your website what each AI agent was asked to do, whether it stayed loyal to its user, and whether it was honest. Invisible to people. Free beta.",
     url: "https://www.elahsecurity.com",
     siteName: "ELAH Security",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ELAH | Verified access for AI agents",
+    title: "ELAH APACT | The CAPTCHA for AI agents",
     description:
-      "A receiving-site verification layer for signed, delegated, scoped agent access.",
+      "The CAPTCHA for AI agents: invisible to people, no questions for agents, a report on every agent's task.",
   },
   robots: {
     index: true,

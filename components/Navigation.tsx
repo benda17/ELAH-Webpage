@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
+import { LOGIN_URL, SIGNUP_URL } from "@/lib/links";
 
 const LINKS = [
-  { href: "/#captcha", label: "Why CAPTCHAs fail" },
   { href: "/#apact", label: "APACT" },
   { href: "/#flow", label: "How it works" },
-  { href: "/#verifies", label: "Verification" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/install", label: "Install" },
 ];
 
 export default function Navigation() {
@@ -40,11 +41,14 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
+          <a href={LOGIN_URL} className="text-[13px] text-white/60 transition hover:text-white">
+            Sign in
+          </a>
           <a
-            href="/demo"
+            href={SIGNUP_URL}
             className="rounded-full bg-[#1086FC] px-4 py-2 text-[13px] font-semibold text-white transition hover:bg-[#2a95ff]"
           >
-            Talk to ELAH
+            Get started
           </a>
         </div>
 
@@ -67,8 +71,11 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
-            <a href="/demo" className="text-sm font-semibold text-[#8cc4ff]" onClick={() => setOpen(false)}>
-              Talk to ELAH
+            <a href={LOGIN_URL} className="text-sm text-white/80" onClick={() => setOpen(false)}>
+              Sign in
+            </a>
+            <a href={SIGNUP_URL} className="text-sm font-semibold text-[#8cc4ff]" onClick={() => setOpen(false)}>
+              Get started free
             </a>
           </div>
         </div>
