@@ -51,23 +51,3 @@ export function DavePeek({ className = "" }: { className?: string }) {
     </div>
   );
 }
-
-export function DaveSpot({ className = "" }: { className?: string }) {
-  return (
-    <div
-      className={`dave pointer-events-none relative select-none ${className}`}
-      style={{ aspectRatio: "819 / 682" }}
-    >
-      <div aria-label="Dave, the ELAH mascot" className="dave-figure absolute inset-0 origin-bottom">
-        <Image
-          src="/dave/cut/head.webp"
-          alt=""
-          fill
-          sizes="(min-width: 1024px) 560px, (min-width: 640px) 480px, 90vw"
-          draggable={false}
-          className="pointer-events-none object-contain"
-        />
-      </div>
-    </div>
-  );
-}
