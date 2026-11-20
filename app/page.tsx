@@ -5,7 +5,6 @@ import Apact from "@/components/Apact";
 import Shift from "@/components/Shift";
 import AccessFlow from "@/components/AccessFlow";
 import Verifies from "@/components/Verifies";
-import Boundary from "@/components/Boundary";
 import CTA from "@/components/CTA";
 
 export default function Home() {
@@ -18,7 +17,6 @@ export default function Home() {
       <Shift />
       <AccessFlow />
       <Verifies />
-      <Boundary />
       <CTA />
     </main>
   );
