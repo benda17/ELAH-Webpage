@@ -67,7 +67,7 @@ const SECTIONS = [
     body: (
       <p>
         You can ask to see, correct or delete your account data, and visitors can ask the website they visited, or us, about
-        visit data. <a href="/demo" className="text-[#8cc4ff] underline underline-offset-2">Contact ELAH</a>.
+        visit data. Write to <a href="mailto:elahsecurity@gmail.com" className="text-[#8cc4ff] underline underline-offset-2">elahsecurity@gmail.com</a>.
       </p>
     ),
   },

@@ -61,7 +61,7 @@ const SECTIONS = [
     title: "Contact",
     body: (
       <p>
-        Questions about these terms: <a href="/demo" className="text-[#8cc4ff] underline underline-offset-2">talk to ELAH</a>.
+        Questions about these terms: <a href="mailto:elahsecurity@gmail.com" className="text-[#8cc4ff] underline underline-offset-2">elahsecurity@gmail.com</a>.
       </p>
     ),
   },
