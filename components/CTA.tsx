@@ -42,6 +42,7 @@ export default function CTA() {
       <footer className="mx-auto mt-16 flex max-w-[1200px] flex-col gap-4 border-t border-white/5 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <Logo size="sm" />
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/40">
+          <a href="/#live" className="hover:text-white">Live demos</a>
           <a href="/pricing" className="hover:text-white">Pricing</a>
           <a href="/install" className="hover:text-white">Install</a>
           <a href="/terms" className="hover:text-white">Beta terms</a>

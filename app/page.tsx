@@ -5,6 +5,7 @@ import Apact from "@/components/Apact";
 import Shift from "@/components/Shift";
 import AccessFlow from "@/components/AccessFlow";
 import Verifies from "@/components/Verifies";
+import LiveDemos from "@/components/LiveDemos";
 import CTA from "@/components/CTA";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Shift />
       <AccessFlow />
       <Verifies />
+      <LiveDemos />
       <CTA />
     </main>
   );
