@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Logo from "./Logo";
+import ThemeSwitch from "./ThemeSwitch";
 import { LOGIN_URL, SIGNUP_URL } from "@/lib/links";
 
 const LINKS = [
@@ -13,69 +14,59 @@ const LINKS = [
 ];
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 px-4 pt-3">
-      <div
-        className={`mx-auto flex max-w-[1200px] items-center justify-between rounded-full border px-5 py-2.5 transition-all duration-300 ${
-          scrolled || open
-            ? "border-white/10 bg-[#070a12]/75 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl"
-            : "border-transparent bg-transparent"
-        }`}
-      >
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 rounded-full border border-line bg-nav-bg py-2 pl-5 pr-2.5 shadow-card backdrop-blur-[18px]">
         <a href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Logo size="sm" />
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-1 md:flex">
           {LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="text-[13px] text-white/60 transition hover:text-white">
+            <a key={link.href} href={link.href} className="rounded-full px-[13px] py-[7px] text-[13.5px] font-medium text-muted transition hover:text-ink">
               {link.label}
             </a>
           ))}
-          <a href={LOGIN_URL} className="text-[13px] text-white/60 transition hover:text-white">
+          <a href={LOGIN_URL} className="rounded-full px-[13px] py-[7px] text-[13.5px] font-medium text-muted transition hover:text-ink">
             Sign in
           </a>
+          <ThemeSwitch className="ml-2" />
           <a
             href={SIGNUP_URL}
-            className="rounded-full bg-[#1086FC] px-4 py-2 text-[13px] font-semibold text-white transition hover:bg-[#2a95ff]"
+            className="ml-2 rounded-full bg-button px-[14px] py-1.5 text-[13px] font-semibold text-white shadow-button transition hover:bg-brand-hover"
           >
             Get started
           </a>
         </div>
 
+        <div className="flex items-center gap-2 md:hidden">
+        <ThemeSwitch />
         <button
           type="button"
-          className="mono text-[11px] uppercase tracking-[0.16em] text-white/70 md:hidden"
+          className="mono rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-muted"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle menu"
         >
           {open ? "Close" : "Menu"}
         </button>
+        </div>
       </div>
 
       {open ? (
-        <div className="mx-auto mt-2 max-w-[1200px] rounded-3xl border border-white/10 bg-[#070a12]/95 px-6 py-5 backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-2 max-w-[1200px] rounded-[22px] border border-line-2 bg-panel-2 px-6 py-5 shadow-card md:hidden">
           <div className="flex flex-col gap-4">
             {LINKS.map((link) => (
-              <a key={link.href} href={link.href} className="text-sm text-white/80" onClick={() => setOpen(false)}>
+              <a key={link.href} href={link.href} className="text-sm text-ink-2" onClick={() => setOpen(false)}>
                 {link.label}
               </a>
             ))}
-            <a href={LOGIN_URL} className="text-sm text-white/80" onClick={() => setOpen(false)}>
+            <a href={LOGIN_URL} className="text-sm text-ink-2" onClick={() => setOpen(false)}>
               Sign in
             </a>
-            <a href={SIGNUP_URL} className="text-sm font-semibold text-[#8cc4ff]" onClick={() => setOpen(false)}>
+            <a href={SIGNUP_URL} className="text-sm font-semibold text-brand-soft" onClick={() => setOpen(false)}>
               Get started free
             </a>
           </div>

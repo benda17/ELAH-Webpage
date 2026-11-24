@@ -49,15 +49,15 @@ export default function PricingPage() {
         {PLANS.map((plan) => (
           <li
             key={plan.name}
-            className={`flex flex-col rounded-3xl p-7 ${plan.open ? "glass glow-blue" : "border border-white/[0.07] bg-white/[0.02]"}`}
+            className={`flex flex-col rounded-3xl p-7 ${plan.open ? "glass glow-blue" : "border border-line bg-ov/[0.02]"}`}
           >
-            <p className="mono text-[10px] uppercase tracking-[0.2em] text-[#8cc4ff]">{plan.name}</p>
-            <p className={`mt-4 text-3xl font-semibold tracking-tight ${plan.open ? "text-white" : "text-white/60"}`}>{plan.price}</p>
-            <p className="mt-1 text-sm text-white/45">{plan.note}</p>
+            <p className="mono text-[10px] uppercase tracking-[0.2em] text-brand-soft">{plan.name}</p>
+            <p className={`mt-4 text-3xl font-semibold tracking-tight ${plan.open ? "text-ink" : "text-muted"}`}>{plan.price}</p>
+            <p className="mt-1 text-sm text-dim">{plan.note}</p>
             <ul className="mt-6 flex-1 space-y-3">
               {plan.features.map((f) => (
-                <li key={f} className="flex gap-3 text-[15px] leading-snug text-white/80">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#1086FC]/20 text-[11px] text-[#8cc4ff]">✓</span>
+                <li key={f} className="flex gap-3 text-[15px] leading-snug text-ink-2">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand/20 text-[11px] text-brand-soft">✓</span>
                   {f}
                 </li>
               ))}
@@ -66,8 +66,8 @@ export default function PricingPage() {
               href={SIGNUP_URL}
               className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-[15px] font-semibold transition ${
                 plan.open
-                  ? "bg-[#1086FC] text-white hover:bg-[#2a95ff]"
-                  : "border border-white/15 text-white/80 hover:border-white/35 hover:text-white"
+                  ? "bg-button text-white hover:bg-brand-hover"
+                  : "border border-line-2 text-ink-2 hover:border-dim hover:text-ink"
               }`}
             >
               {plan.open ? "Get started free" : "Join the waitlist"}
@@ -75,8 +75,8 @@ export default function PricingPage() {
           </li>
         ))}
       </ul>
-      <p className="mt-10 max-w-2xl text-sm leading-relaxed text-white/45">
-        Need more than three sites during the beta, or a different install? <a href="/demo" className="text-[#8cc4ff] underline underline-offset-2">Talk to ELAH</a>.
+      <p className="mt-10 max-w-2xl text-sm leading-relaxed text-dim">
+        Need more than three sites during the beta, or a different install? <a href="/demo" className="text-brand-soft underline underline-offset-2">Talk to ELAH</a>.
       </p>
     </PageShell>
   );

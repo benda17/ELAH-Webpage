@@ -95,20 +95,20 @@ export default function CaptchaBreak() {
   const elah = passed && t > 6700;
 
   return (
-    <section id="captcha" className="relative scroll-mt-24 overflow-hidden border-t border-white/5 px-6 py-28 sm:py-32">
+    <section id="captcha" className="relative scroll-mt-24 overflow-hidden border-t border-line px-6 py-28 sm:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[900px] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
-        style={{ background: "radial-gradient(ellipse, rgba(244,63,94,0.25), transparent 65%)" }}
+        style={{ background: "radial-gradient(ellipse, color-mix(in srgb, var(--bad) 22%, transparent), transparent 65%)" }}
       />
       <div className="relative mx-auto max-w-[1200px]">
         <Reveal>
-          <p className="mono text-[11px] uppercase tracking-[0.22em] text-rose-300/80">The CAPTCHA problem</p>
-          <h2 className="mt-4 max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
+          <p className="mono text-[11px] uppercase tracking-[0.22em] text-bad-ink">The CAPTCHA problem</p>
+          <h2 className="mt-4 max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-ink sm:text-6xl">
             CAPTCHAs ask “are you human?”{" "}
-            <span className="bg-gradient-to-r from-rose-300 to-rose-500 bg-clip-text text-transparent">AI agents just say yes.</span>
+            <span className="bg-gradient-to-r from-bad-ink to-bad bg-clip-text text-transparent">AI agents just say yes.</span>
           </h2>
-          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/60">
+          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-muted">
             Checkbox and image puzzles were built to keep scripts out. Today an
             agent clicks the box, reads the grid, and passes in seconds, and the
             site still knows nothing about who sent it or what it may do.
@@ -118,24 +118,24 @@ export default function CaptchaBreak() {
         <div ref={ref} className="mt-14 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
           <div className="glass relative overflow-hidden rounded-3xl p-2">
             <div className="flex items-center gap-1.5 px-3 py-2.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-              <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-              <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-              <span className="mono ml-3 truncate rounded-md bg-white/5 px-3 py-1 text-[11px] text-white/40">
+              <span className="h-2.5 w-2.5 rounded-full bg-ov/15" />
+              <span className="h-2.5 w-2.5 rounded-full bg-ov/15" />
+              <span className="h-2.5 w-2.5 rounded-full bg-ov/15" />
+              <span className="mono ml-3 truncate rounded-md bg-ov/5 px-3 py-1 text-[11px] text-dim">
                 portal.example.com/support/new
               </span>
-              <span className="mono ml-auto text-[11px] tabular-nums text-rose-300">
+              <span className="mono ml-auto text-[11px] tabular-nums text-bad-ink">
                 {(solveMs / 1000).toFixed(1)}s
               </span>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#0b0f1a]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-panel-2">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),transparent_60%)]" />
 
-              <div className="absolute left-[8%] top-[42%] flex w-[52%] min-w-[220px] items-center gap-3 rounded-lg border border-white/10 bg-[#f4f6fa] px-4 py-3.5 text-[#1b1f2a] shadow-xl">
+              <div className="absolute left-[8%] top-[42%] flex w-[52%] min-w-[220px] items-center gap-3 rounded-lg border border-line-2 bg-[#f4f6fa] px-4 py-3.5 text-[#1b1f2a] shadow-xl">
                 <span className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-[4px] border-2 border-[#c1c7d0] bg-white">
                   {phase === "checking" || phase === "challenge" || phase === "verifying" ? (
-                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#1086FC] border-t-transparent" />
+                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-brand border-t-transparent" />
                   ) : passed ? (
                     <span className="text-xl font-bold leading-none text-emerald-600">✓</span>
                   ) : null}
@@ -155,7 +155,7 @@ export default function CaptchaBreak() {
                     : "pointer-events-none translate-y-3 opacity-0"
                 }`}
               >
-                <div className="rounded-sm bg-[#1086FC] px-3 py-2.5 text-white">
+                <div className="rounded-sm bg-button px-3 py-2.5 text-white">
                   <p className="text-[11px] leading-tight">Select all squares with</p>
                   <p className="text-[17px] font-bold leading-tight">traffic lights</p>
                 </div>
@@ -164,12 +164,12 @@ export default function CaptchaBreak() {
                     <div key={i} className="relative aspect-square overflow-hidden">
                       <StreetTile i={i} />
                       <span
-                        className={`absolute inset-0 border-[3px] border-[#1086FC] transition ${
+                        className={`absolute inset-0 border-[3px] border-brand transition ${
                           tiles.has(i) ? "scale-100 opacity-100" : "scale-110 opacity-0"
                         }`}
                       />
                       {tiles.has(i) ? (
-                        <span className="absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#1086FC] text-[10px] text-white">
+                        <span className="absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-button text-[10px] text-white">
                           ✓
                         </span>
                       ) : null}
@@ -177,14 +177,14 @@ export default function CaptchaBreak() {
                   ))}
                 </div>
                 <div className="mt-1.5 flex justify-end">
-                  <span className="rounded-sm bg-[#1086FC] px-4 py-1.5 text-[11px] font-semibold uppercase text-white">
+                  <span className="rounded-sm bg-button px-4 py-1.5 text-[11px] font-semibold uppercase text-white">
                     {phase === "verifying" ? "…" : "Verify"}
                   </span>
                 </div>
               </div>
 
               {passed ? (
-                <div className="animate-stamp absolute right-[7%] top-[14%] rounded-md border-[3px] border-rose-400 px-4 py-2 text-center text-rose-300 shadow-[0_0_40px_rgba(244,63,94,0.35)]">
+                <div className="animate-stamp absolute right-[7%] top-[14%] rounded-md border-[3px] border-bad bg-panel/80 px-4 py-2 text-center text-bad-ink shadow-[0_0_40px_color-mix(in_srgb,var(--bad)_35%,transparent)]">
                   <p className="mono text-[10px] uppercase tracking-[0.2em]">Passed as</p>
                   <p className="text-2xl font-bold uppercase leading-none tracking-tight">Human</p>
                 </div>
@@ -198,7 +198,7 @@ export default function CaptchaBreak() {
                 <svg width="22" height="26" viewBox="0 0 22 26" className="drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
                   <path d="M1 1 L1 20 L6 15.5 L9.5 24 L13 22.5 L9.6 14.4 L16.5 14.4 Z" fill="#ff4d6d" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round" />
                 </svg>
-                <span className="mono ml-4 mt-0.5 inline-block whitespace-nowrap rounded bg-rose-500 px-1.5 py-0.5 text-[9px] text-white">
+                <span className="mono ml-4 mt-0.5 inline-block whitespace-nowrap rounded bg-bad px-1.5 py-0.5 text-[9px] text-white">
                   agent
                 </span>
               </div>
@@ -207,29 +207,29 @@ export default function CaptchaBreak() {
 
           <div className="flex flex-col gap-5">
             <div className="glass flex min-h-[260px] flex-1 flex-col rounded-3xl p-5">
-              <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/35">agent.log</p>
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-dim">agent.log</p>
               <ul className="mono mt-3 flex-1 space-y-1.5 text-[12px] leading-relaxed">
                 {logs.map((line, i) => (
                   <li
                     key={`${run}-${i}`}
                     className={`animate-fade-in ${
-                      line.startsWith("✓") ? "text-rose-300" : line.startsWith("$") ? "text-white" : "text-white/55"
+                      line.startsWith("✓") ? "text-bad-ink" : line.startsWith("$") ? "text-ink" : "text-muted"
                     }`}
                   >
                     {line}
                   </li>
                 ))}
-                <li className="animate-caret text-white/50">▍</li>
+                <li className="animate-caret text-dim">▍</li>
               </ul>
             </div>
 
             <div className={`glass rounded-3xl p-5 transition-all duration-500 ${elah ? "glow-blue" : ""}`}>
-              <p className="mono text-[10px] uppercase tracking-[0.2em] text-[#8cc4ff]">Same request, ELAH-protected</p>
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-brand-soft">Same request, ELAH-protected</p>
               <div className="mono mt-3 space-y-2 text-[12px]">
                 <Lane on={elah} who="headless script · no grant" status="rejected" reason="no_valid_grant" tone="rose" />
                 <Lane on={elah && t > 7500} who="support-agent · signed grant" status="verified" reason="scope_ok" tone="emerald" />
               </div>
-              <p className="mt-3 text-[12px] leading-snug text-white/45">
+              <p className="mt-3 text-[12px] leading-snug text-dim">
                 No puzzle to solve. ELAH asks for proof of delegated, scoped permission instead.
               </p>
             </div>
@@ -239,9 +239,9 @@ export default function CaptchaBreak() {
         <ul className="mt-5 grid gap-5 md:grid-cols-3">
           {FACTS.map((f, i) => (
             <Reveal as="li" key={f.stat} delay={i * 90} className="glass rounded-3xl p-6">
-              <p className="text-3xl font-semibold tracking-tight text-white">{f.stat}</p>
-              <p className="mt-2 text-[14px] leading-relaxed text-white/60">{f.body}</p>
-              <p className="mono mt-4 text-[10px] uppercase leading-relaxed tracking-[0.12em] text-white/30">{f.source}</p>
+              <p className="text-3xl font-semibold tracking-tight text-ink">{f.stat}</p>
+              <p className="mt-2 text-[14px] leading-relaxed text-muted">{f.body}</p>
+              <p className="mono mt-4 text-[10px] uppercase leading-relaxed tracking-[0.12em] text-dim">{f.source}</p>
             </Reveal>
           ))}
         </ul>
@@ -263,11 +263,11 @@ function Lane({
   reason: string;
   tone: "rose" | "emerald";
 }) {
-  const color = tone === "rose" ? "border-rose-400/40 bg-rose-400/10 text-rose-300" : "border-emerald-400/40 bg-emerald-400/10 text-emerald-300";
+  const color = tone === "rose" ? "tone tone-bad" : "tone tone-ok";
   return (
-    <div className="flex items-center justify-between gap-3 rounded-xl border border-white/5 bg-black/30 px-3 py-2.5">
-      <span className="truncate text-white/60">{who}</span>
-      <span className={`shrink-0 rounded-md border px-2 py-0.5 transition-all duration-300 ${on ? color : "border-white/5 text-white/25"}`}>
+    <div className="flex items-center justify-between gap-3 rounded-xl border border-line bg-sunk px-3 py-2.5">
+      <span className="truncate text-muted">{who}</span>
+      <span className={`shrink-0 rounded-md border px-2 py-0.5 transition-all duration-300 ${on ? color : "border-line text-dim"}`}>
         {on ? `${status} · ${reason}` : "waiting"}
       </span>
     </div>

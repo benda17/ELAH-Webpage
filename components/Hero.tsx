@@ -94,9 +94,9 @@ export default function Hero() {
   const tone =
     s.status === "admit" || s.status === "passed_human" ? "emerald" : s.status === "test_further" ? "amber" : "rose";
   const badge = {
-    emerald: "border-emerald-400/40 bg-emerald-400/10 text-emerald-300",
-    amber: "border-amber-300/40 bg-amber-300/10 text-amber-200",
-    rose: "border-rose-400/40 bg-rose-400/10 text-rose-300",
+    emerald: "tone tone-ok",
+    amber: "tone tone-warn",
+    rose: "tone tone-bad",
   }[tone];
 
   return (
@@ -104,8 +104,7 @@ export default function Hero() {
       <div aria-hidden className="grid-fade pointer-events-none absolute inset-0" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-40 top-10 h-[760px] w-[760px] rounded-full opacity-70 blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(16,134,252,0.45), rgba(16,134,252,0.08) 45%, transparent 70%)" }}
+        className="hero-glow pointer-events-none absolute -right-40 top-10 h-[760px] w-[760px] rounded-full opacity-70 blur-3xl"
       />
       <div
         aria-hidden
@@ -117,26 +116,26 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1200px] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8">
         <div className="animate-slide-up">
-          <p className="mono inline-flex max-w-[13.25rem] items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] text-[#8cc4ff] sm:max-w-none sm:tracking-[0.2em]">
+          <p className="mono inline-flex max-w-[13.25rem] items-center gap-2.5 rounded-full border border-line-2 bg-ov/[0.04] px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] text-brand-soft sm:max-w-none sm:tracking-[0.2em]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1086FC] opacity-70" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#1086FC]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-button opacity-70" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-button" />
             </span>
             ELAH APACT — Free beta
           </p>
-          <h1 className="mt-7 max-w-xl text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-white sm:text-5xl lg:text-[3.35rem]">
+          <h1 className="mt-7 max-w-xl text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] text-ink sm:text-5xl lg:text-[3.35rem]">
             Soon, web browsers will be built for agents.
           </h1>
           <div className="mt-8 max-w-lg space-y-5">
-            <p className="text-[1.15rem] leading-snug text-white/45 sm:text-xl">
+            <p className="text-[1.15rem] leading-snug text-dim sm:text-xl">
               The CAPTCHA question won’t be
-              <span className="mt-1 block text-[1.45rem] font-medium text-white/35 line-through decoration-rose-400/70 sm:text-[1.7rem]">
+              <span className="mt-1 block text-[1.45rem] font-medium text-dim line-through decoration-bad sm:text-[1.7rem]">
                 “Are you human?”
               </span>
             </p>
-            <p className="text-[1.15rem] leading-snug text-white sm:text-xl">
+            <p className="text-[1.15rem] leading-snug text-ink sm:text-xl">
               It will be
-              <span className="mt-1 block text-balance text-[1.65rem] font-semibold leading-tight tracking-[-0.02em] text-white sm:text-[2rem]">
+              <span className="mt-1 block text-balance text-[1.65rem] font-semibold leading-tight tracking-[-0.02em] text-ink sm:text-[2rem]">
                 “Are you doing what a human requested from you?”
               </span>
             </p>
@@ -144,20 +143,20 @@ export default function Hero() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href={SIGNUP_URL}
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#1086FC] px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_40px_-8px_rgba(16,134,252,0.8)] transition hover:-translate-y-0.5 hover:bg-[#2a95ff]"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-button px-7 py-3.5 text-[15px] font-semibold text-white shadow-button transition hover:-translate-y-0.5 hover:bg-brand-hover"
             >
               Put APACT on your site
               <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
             </a>
             <a
               href="#flow"
-              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-[15px] font-medium text-white/85 transition hover:border-white/35 hover:text-white"
+              className="inline-flex items-center justify-center rounded-full border border-line-2 bg-ov/[0.03] px-7 py-3.5 text-[15px] font-medium text-ink-2 transition hover:border-dim hover:text-ink"
             >
               See how it works
             </a>
           </div>
           <HeroNewsletterForm />
-          <ul className="mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.16em] text-white/40">
+          <ul className="mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.16em] text-dim">
             <li>Invisible to people</li>
             <li>No questions for agents</li>
             <li>Task · loyalty · honesty</li>
@@ -166,29 +165,29 @@ export default function Hero() {
         </div>
 
         <div className="relative mx-auto flex w-full max-w-[420px] items-center justify-center lg:mx-0 lg:min-h-[460px] lg:justify-end">
-          <div aria-hidden className="absolute left-1/2 top-1/2 hidden aspect-square w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#1086FC]/20 sm:block" />
-          <div aria-hidden className="absolute left-1/2 top-1/2 hidden aspect-square w-[104%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/10 [animation:spin_60s_linear_infinite] sm:block" />
+          <div aria-hidden className="absolute left-1/2 top-1/2 hidden aspect-square w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand/20 sm:block" />
+          <div aria-hidden className="absolute left-1/2 top-1/2 hidden aspect-square w-[104%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-line-2 [animation:spin_60s_linear_infinite] sm:block" />
           <div
             aria-hidden
             className="absolute left-1/2 top-1/2 h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
-            style={{ background: "radial-gradient(circle, rgba(16,134,252,0.45), transparent 65%)" }}
+            style={{ background: "radial-gradient(circle, rgb(16 134 252 / var(--hero-glow)), transparent 65%)" }}
           />
 
           <aside
-            className="glass relative z-10 mt-8 w-full max-w-[340px] rounded-2xl p-4 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] lg:mb-2 lg:mt-36 lg:w-[300px] lg:self-end"
+            className="glass relative z-10 mt-8 w-full max-w-[340px] rounded-2xl p-4 shadow-card lg:mb-2 lg:mt-36 lg:w-[300px] lg:self-end"
             aria-live="polite"
           >
             <div className="flex items-center justify-between">
-              <p className="mono text-[10px] uppercase tracking-[0.18em] text-[#8cc4ff]">Live screening</p>
-              <span className="mono text-[10px] text-white/35">{String(index + 1).padStart(2, "0")}/05</span>
+              <p className="mono text-[10px] uppercase tracking-[0.18em] text-brand-soft">Live screening</p>
+              <span className="mono text-[10px] text-dim">{String(index + 1).padStart(2, "0")}/05</span>
             </div>
-            <div className="mono mt-3 rounded-lg border border-white/5 bg-black/40 px-3 py-2 text-[11px] leading-relaxed">
-              <p className="truncate text-white/85">GET {s.page}</p>
-              <p className="text-white/40">
-                visitor <span className="text-white/70">{s.visitor}</span>
+            <div className="mono mt-3 rounded-lg border border-line bg-sunk px-3 py-2 text-[11px] leading-relaxed">
+              <p className="truncate text-ink-2">GET {s.page}</p>
+              <p className="text-dim">
+                visitor <span className="text-muted">{s.visitor}</span>
               </p>
-              <p className="text-white/40">
-                task <span className="text-[#8cc4ff]">{s.task}</span>
+              <p className="text-dim">
+                task <span className="text-brand-soft">{s.task}</span>
               </p>
             </div>
             <ul className="mono mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-[11px]">
@@ -199,26 +198,26 @@ export default function Hero() {
                     <span
                       className={`inline-flex h-3.5 w-3.5 items-center justify-center rounded-full text-[9px] transition ${
                         state === "ok"
-                          ? "bg-emerald-400/20 text-emerald-300"
+                          ? "tone tone-ok"
                           : state === "fail"
                             ? tone === "amber"
-                              ? "bg-amber-300/20 text-amber-200"
-                              : "bg-rose-400/20 text-rose-300"
-                            : "bg-white/5 text-white/20"
+                              ? "tone tone-warn"
+                              : "tone tone-bad"
+                            : "bg-ov/5 text-dim"
                       }`}
                     >
                       {state === "ok" ? "✓" : state === "fail" ? (tone === "amber" ? "!" : "×") : "·"}
                     </span>
-                    <span className={state === "wait" || state === "skip" ? "text-white/30" : "text-white/75"}>{c}</span>
+                    <span className={state === "wait" || state === "skip" ? "text-dim" : "text-muted"}>{c}</span>
                   </li>
                 );
               })}
             </ul>
-            <div className={`mono mt-3 rounded-lg border px-3 py-2 text-[11px] leading-snug transition-all duration-300 ${done ? badge : "border-white/5 bg-white/[0.02] text-white/30"}`}>
+            <div className={`mono mt-3 rounded-lg border px-3 py-2 text-[11px] leading-snug transition-all duration-300 ${done ? badge : "border-line bg-ov/[0.02] text-dim"}`}>
               <p className="font-semibold">{done ? s.status : "watching…"}</p>
               <p className="opacity-75">{done ? s.reason : "\u00a0"}</p>
             </div>
-            <p className="mt-2.5 text-[10.5px] leading-snug text-white/35">
+            <p className="mt-2.5 text-[10.5px] leading-snug text-dim">
               Signed evidence for your site. Your policy decides.
             </p>
           </aside>

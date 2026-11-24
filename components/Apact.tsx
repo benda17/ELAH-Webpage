@@ -56,37 +56,37 @@ export default function Apact() {
   const struck = phase !== "captcha";
 
   return (
-    <section id="apact" ref={ref} className="relative scroll-mt-24 border-t border-white/5 px-6 py-28 sm:py-32">
+    <section id="apact" ref={ref} className="relative scroll-mt-24 border-t border-line px-6 py-28 sm:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-1/4 h-[520px] w-[520px] rounded-full opacity-40 blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(16,134,252,0.35), transparent 65%)" }}
+        style={{ background: "radial-gradient(circle, rgb(16 134 252 / var(--hero-glow)), transparent 65%)" }}
       />
       <div className="relative mx-auto max-w-[1200px]">
-        <p className="mono text-[11px] uppercase tracking-[0.22em] text-[#8cc4ff]">The product</p>
+        <p className="mono text-[11px] uppercase tracking-[0.22em] text-brand-soft">The product</p>
 
         <div
           className={`mt-8 max-w-3xl rounded-3xl p-7 transition-all duration-700 sm:p-10 ${
-            swapped ? "glass glow-blue" : "border border-white/10 bg-white/[0.02]"
+            swapped ? "glass glow-blue" : "border border-line-2 bg-ov/[0.02]"
           }`}
         >
           <h2 className="text-balance leading-[0.95] tracking-[-0.03em]">
             <span
               className={`relative inline-block font-semibold transition-all duration-700 ${
-                swapped ? "text-3xl text-white/30 sm:text-4xl" : "text-5xl text-white sm:text-7xl"
+                swapped ? "text-3xl text-dim sm:text-4xl" : "text-5xl text-ink sm:text-7xl"
               }`}
               aria-hidden={swapped}
             >
               CAPTCHA
               <span
                 aria-hidden
-                className="absolute left-0 right-0 top-1/2 h-[3px] origin-left bg-rose-400 transition-transform duration-700 ease-out"
+                className="absolute left-0 right-0 top-1/2 h-[3px] origin-left bg-bad transition-transform duration-700 ease-out"
                 style={{ transform: struck ? "scaleX(1)" : "scaleX(0)" }}
               />
             </span>
             <span
               aria-hidden={!swapped}
-              className={`block font-semibold text-white transition-all duration-700 ${
+              className={`block font-semibold text-ink transition-all duration-700 ${
                 swapped
                   ? "mt-3 max-h-40 translate-y-0 text-5xl opacity-100 sm:text-7xl"
                   : "mt-0 max-h-0 translate-y-3 overflow-hidden text-5xl opacity-0 sm:text-7xl"
@@ -120,7 +120,7 @@ export default function Apact() {
           </div>
 
           <div
-            className={`max-w-xl space-y-4 overflow-hidden text-[16px] leading-relaxed text-white/70 transition-all duration-700 ${
+            className={`max-w-xl space-y-4 overflow-hidden text-[16px] leading-relaxed text-muted transition-all duration-700 ${
               swapped ? "mt-8 max-h-96 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
@@ -150,11 +150,11 @@ function LetterRow({
 }) {
   return (
     <li className="relative flex items-baseline gap-4">
-      <span className={`w-8 shrink-0 font-mono text-2xl font-semibold sm:text-3xl ${muted ? "text-white/35" : "text-[#8cc4ff]"}`}>{letter}</span>
-      <span className={`text-2xl font-medium tracking-tight sm:text-3xl ${muted ? "text-white/45" : "text-white"}`}>{word}</span>
+      <span className={`w-8 shrink-0 font-mono text-2xl font-semibold sm:text-3xl ${muted ? "text-dim" : "text-brand-soft"}`}>{letter}</span>
+      <span className={`text-2xl font-medium tracking-tight sm:text-3xl ${muted ? "text-dim" : "text-ink"}`}>{word}</span>
       <span
         aria-hidden
-        className="absolute left-0 right-0 top-1/2 h-[2px] origin-left bg-rose-400/90 transition-transform duration-500 ease-out"
+        className="absolute left-0 right-0 top-1/2 h-[2px] origin-left bg-bad transition-transform duration-500 ease-out"
         style={{ transform: struck ? "scaleX(1)" : "scaleX(0)", transitionDelay: `${delay}ms` }}
       />
     </li>

@@ -22,14 +22,14 @@ const DEMOS = [
 
 export default function LiveDemos() {
   return (
-    <section id="live" className="relative scroll-mt-24 border-t border-white/5 px-6 py-28 sm:py-32">
+    <section id="live" className="relative scroll-mt-24 border-t border-line px-6 py-28 sm:py-32">
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
-          <p className="mono text-[11px] uppercase tracking-[0.22em] text-[#8cc4ff]">See it live</p>
-          <h2 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
+          <p className="mono text-[11px] uppercase tracking-[0.22em] text-brand-soft">See it live</p>
+          <h2 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-ink sm:text-6xl">
             Two demo sites running APACT.
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-white/60">
+          <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-muted">
             Use them yourself, then send an AI agent. You won&apos;t see APACT; the agent&apos;s run is checked.
           </p>
         </Reveal>
@@ -41,15 +41,15 @@ export default function LiveDemos() {
                 href={demo.href}
                 target="_blank"
                 rel="noopener"
-                className="group flex h-full flex-col rounded-3xl border border-white/[0.08] bg-white/[0.025] p-7 transition-colors duration-300 hover:border-[#1086FC]/60 hover:bg-[#1086FC]/[0.08] sm:p-8"
+                className="group flex h-full flex-col rounded-3xl border border-line bg-ov/[0.025] p-7 transition-colors duration-300 hover:border-brand/60 hover:bg-brand/[0.08] sm:p-8"
               >
-                <span className="mono text-[11px] uppercase tracking-[0.18em] text-[#8cc4ff]">{demo.kind}</span>
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{demo.name}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-white/60">{demo.body}</p>
-                <p className="mt-4 text-[14px] leading-relaxed text-white/45">
-                  <span className="text-white/70">Try it:</span> {demo.tryIt}
+                <span className="mono text-[11px] uppercase tracking-[0.18em] text-brand-soft">{demo.kind}</span>
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{demo.name}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">{demo.body}</p>
+                <p className="mt-4 text-[14px] leading-relaxed text-dim">
+                  <span className="text-muted">Try it:</span> {demo.tryIt}
                 </p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-7 text-[15px] font-medium text-[#8cc4ff] group-hover:text-white">
+                <span className="mt-auto inline-flex items-center gap-2 pt-7 text-[15px] font-medium text-brand-soft group-hover:text-ink">
                   {demo.host}
                   <span aria-hidden className="transition group-hover:translate-x-0.5">↗</span>
                 </span>

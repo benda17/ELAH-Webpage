@@ -10,7 +10,7 @@ import CTA from "@/components/CTA";
 
 export default function Home() {
   return (
-    <main className="landing min-h-screen overflow-x-clip bg-[#05070d] text-white">
+    <main className="landing min-h-screen overflow-x-clip bg-bg text-ink">
       <Navigation />
       <Hero />
       <CaptchaBreak />
