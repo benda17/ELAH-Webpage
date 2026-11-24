@@ -47,7 +47,7 @@ export default function Shift() {
             <ul className="mt-6 space-y-6">
               {ROWS.map((r) => (
                 <li key={r.next} className="flex gap-3 text-lg font-medium leading-snug text-ink">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-button shadow-[0_0_12px_#1086FC]" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-button shadow-[0_0_12px_rgb(16_134_252_/_0.8)]" />
                   {r.next}
                 </li>
               ))}

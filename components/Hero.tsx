@@ -109,7 +109,7 @@ export default function Hero() {
       <div
         aria-hidden
         className="pointer-events-none absolute -left-40 bottom-0 h-[520px] w-[520px] rounded-full opacity-50 blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(88,80,236,0.35), transparent 65%)" }}
+        style={{ background: "radial-gradient(circle, rgb(88 80 236 / var(--glow-a)), transparent 65%)" }}
       />
 
       <DavePeek />

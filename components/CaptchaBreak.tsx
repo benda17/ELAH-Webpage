@@ -184,7 +184,7 @@ export default function CaptchaBreak() {
               </div>
 
               {passed ? (
-                <div className="animate-stamp absolute right-[7%] top-[14%] rounded-md border-[3px] border-bad bg-panel/80 px-4 py-2 text-center text-bad-ink shadow-[0_0_40px_color-mix(in_srgb,var(--bad)_35%,transparent)]">
+                <div className="animate-stamp absolute right-[7%] top-[14%] rounded-md border-[3px] border-bad bg-[color-mix(in_srgb,var(--panel)_85%,transparent)] px-4 py-2 text-center text-bad-ink shadow-[0_0_40px_color-mix(in_srgb,var(--bad)_35%,transparent)]">
                   <p className="mono text-[10px] uppercase tracking-[0.2em]">Passed as</p>
                   <p className="text-2xl font-bold uppercase leading-none tracking-tight">Human</p>
                 </div>
@@ -198,7 +198,7 @@ export default function CaptchaBreak() {
                 <svg width="22" height="26" viewBox="0 0 22 26" className="drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
                   <path d="M1 1 L1 20 L6 15.5 L9.5 24 L13 22.5 L9.6 14.4 L16.5 14.4 Z" fill="#ff4d6d" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round" />
                 </svg>
-                <span className="mono ml-4 mt-0.5 inline-block whitespace-nowrap rounded bg-bad px-1.5 py-0.5 text-[9px] text-white">
+                <span className="mono ml-4 mt-0.5 inline-block whitespace-nowrap rounded bg-panel px-1.5 py-0.5 text-[9px] text-bad-ink ring-1 ring-bad">
                   agent
                 </span>
               </div>
