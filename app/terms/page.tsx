@@ -43,7 +43,7 @@ const SECTIONS = [
     body: (
       <p>
         APACT runs on your website, so you are responsible for telling your visitors about it in your own privacy notice
-        and for having a lawful basis to use it. Our <a href="/privacy" className="text-[#8cc4ff] underline underline-offset-2">privacy notice</a>{" "}
+        and for having a lawful basis to use it. Our <a href="/privacy" className="text-brand-soft underline underline-offset-2">privacy notice</a>{" "}
         describes what APACT collects about them. Don’t use APACT to collect anything it isn’t built for.
       </p>
     ),
@@ -61,7 +61,7 @@ const SECTIONS = [
     title: "Contact",
     body: (
       <p>
-        Questions about these terms: <a href="mailto:elahsecurity@gmail.com" className="text-[#8cc4ff] underline underline-offset-2">elahsecurity@gmail.com</a>.
+        Questions about these terms: <a href="mailto:elahsecurity@gmail.com" className="text-brand-soft underline underline-offset-2">elahsecurity@gmail.com</a>.
       </p>
     ),
   },

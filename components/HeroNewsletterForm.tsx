@@ -67,7 +67,7 @@ export default function HeroNewsletterForm() {
 
   return (
     <form onSubmit={onSubmit} className="mt-8 max-w-lg space-y-3">
-      <p className="mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+      <p className="mono text-[10px] uppercase tracking-[0.16em] text-dim">
         Weekly Newsletter
       </p>
       <div className="flex flex-col gap-2 sm:flex-row sm:items-stretch">
@@ -83,22 +83,22 @@ export default function HeroNewsletterForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
-          className="min-h-[48px] flex-1 rounded-full border border-white/15 bg-white/[0.04] px-5 text-[15px] text-white outline-none placeholder:text-white/30 focus:border-[#1086FC]"
+          className="min-h-[48px] flex-1 rounded-full border border-line-2 bg-ov/[0.04] px-5 text-[15px] text-ink outline-none placeholder:text-dim focus:border-brand"
         />
         <button
           type="submit"
           disabled={status === "saving"}
-          className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/15 bg-white/[0.06] px-6 text-[15px] font-medium text-white transition hover:border-white/35 hover:bg-white/15 disabled:opacity-50"
+          className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-line-2 bg-ov/[0.06] px-6 text-[15px] font-medium text-ink transition hover:border-dim hover:bg-ov/[0.09] disabled:opacity-50"
         >
           {status === "saving" ? "Saving…" : "Subscribe"}
         </button>
       </div>
-      <label className="flex items-start gap-2.5 text-[13px] leading-snug text-white/55">
+      <label className="flex items-start gap-2.5 text-[13px] leading-snug text-muted">
         <input
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 h-4 w-4 shrink-0 accent-[#00A8FF]"
+          className="mt-0.5 h-4 w-4 shrink-0 accent-brand"
         />
         <span>
           I agree to receive the ELAH weekly newsletter by email. Required to join
@@ -109,8 +109,8 @@ export default function HeroNewsletterForm() {
         <p
           className={
             status === "ok"
-              ? "text-[13px] text-elah-blue"
-              : "text-[13px] text-red-400"
+              ? "text-[13px] text-ok-ink"
+              : "text-[13px] text-bad-ink"
           }
           role="status"
         >

@@ -1,46 +1,28 @@
-import Image from "next/image";
-
-/** Opaque wordmark inside the square logo file. */
-const BAND = { x: 76, y: 200, w: 348, h: 104, canvas: 500 } as const;
+/** ELAH's wordmark, as Monitor, X-ray and APACT show it: the on-light file in the light theme, on-dark in dark. */
+const RATIO = 933 / 282;
 
 const HEIGHT = {
-  sm: 26,
-  md: 34,
-  lg: 44,
+  sm: 22,
+  md: 30,
+  lg: 40,
 } as const;
 
 export default function Logo({
   className = "",
   size = "md",
-  tone = "light",
 }: {
   className?: string;
   size?: keyof typeof HEIGHT;
-  tone?: "light" | "ink";
 }) {
   const height = HEIGHT[size];
-  const scale = height / BAND.h;
-  const width = Math.round(BAND.w * scale);
+  const width = Math.round(height * RATIO);
 
   return (
-    <span
-      className={`relative inline-block overflow-hidden ${className}`}
-      style={{ width, height }}
-    >
-      <Image
-        src={tone === "ink" ? "/logo-ink.png" : "/logo.png"}
-        alt="ELAH"
-        width={BAND.canvas}
-        height={BAND.canvas}
-        priority
-        className="absolute max-w-none"
-        style={{
-          width: BAND.canvas * scale,
-          height: BAND.canvas * scale,
-          left: -BAND.x * scale,
-          top: -BAND.y * scale,
-        }}
-      />
+    <span className={`inline-flex ${className}`} style={{ height }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="logo-light block" src="/brand/elah-wordmark-on-light.svg" alt="ELAH" width={width} height={height} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="logo-dark block" src="/brand/elah-wordmark-on-dark.svg" alt="ELAH" width={width} height={height} />
     </span>
   );
 }

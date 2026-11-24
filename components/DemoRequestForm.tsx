@@ -6,7 +6,7 @@ import { landingApiUrl } from "@/lib/landing-api";
 type Status = "idle" | "saving" | "ok" | "error";
 
 const inputClass =
-  "mt-1.5 min-h-[48px] w-full border border-white/20 bg-black/40 px-4 text-[15px] text-white outline-none placeholder:text-white/30 focus:border-elah-blue";
+  "mt-1.5 min-h-[44px] w-full rounded-[12px] border border-line-2 bg-ov/[0.03] px-[14px] text-[14px] text-ink outline-none transition placeholder:text-dim focus:border-brand focus:shadow-[0_0_0_3px_rgb(16_134_252_/_0.22)]";
 
 export default function DemoRequestForm() {
   const [name, setName] = useState("");
@@ -72,16 +72,16 @@ export default function DemoRequestForm() {
   if (status === "ok") {
     return (
       <div
-        className="border border-elah-blue/40 bg-elah-blue/10 px-6 py-8"
+        className="rounded-[20px] border border-brand/40 bg-brand/10 px-6 py-8 shadow-glow"
         role="status"
       >
-        <p className="mono text-[10px] uppercase tracking-[0.16em] text-elah-blue">
+        <p className="mono text-[10px] uppercase tracking-[0.16em] text-brand-soft">
           Request received
         </p>
-        <h2 className="mt-3 text-2xl font-semibold text-white">
+        <h2 className="mt-3 text-2xl font-semibold text-ink">
           We&apos;ll book a time with you.
         </h2>
-        <p className="mt-3 text-[15px] leading-relaxed text-white/70">
+        <p className="mt-3 text-[15px] leading-relaxed text-muted">
           Expect an email within one business day to schedule a 30-minute
           walkthrough. No deck — we score a real agent path before a tool runs.
         </p>
@@ -89,7 +89,7 @@ export default function DemoRequestForm() {
           href="https://drive.google.com/file/d/1mFHntfcK0G3sXlwkATMkwZEYge90iL-R/view"
           target="_blank"
           rel="noreferrer"
-          className="mt-6 inline-flex text-[14px] text-elah-blue underline-offset-2 hover:underline"
+          className="mt-6 inline-flex text-[14px] text-accent underline-offset-2 hover:underline"
         >
           Watch the product walkthrough while you wait
         </a>
@@ -100,7 +100,7 @@ export default function DemoRequestForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div>
-        <label htmlFor="demo-name" className="text-[13px] text-white/70">
+        <label htmlFor="demo-name" className="text-[13px] text-muted">
           Full name
         </label>
         <input
@@ -116,7 +116,7 @@ export default function DemoRequestForm() {
         />
       </div>
       <div>
-        <label htmlFor="demo-email" className="text-[13px] text-white/70">
+        <label htmlFor="demo-email" className="text-[13px] text-muted">
           Work email
         </label>
         <input
@@ -132,7 +132,7 @@ export default function DemoRequestForm() {
         />
       </div>
       <div>
-        <label htmlFor="demo-company" className="text-[13px] text-white/70">
+        <label htmlFor="demo-company" className="text-[13px] text-muted">
           Company
         </label>
         <input
@@ -148,8 +148,8 @@ export default function DemoRequestForm() {
         />
       </div>
       <div>
-        <label htmlFor="demo-role" className="text-[13px] text-white/70">
-          Role <span className="text-white/35">(optional)</span>
+        <label htmlFor="demo-role" className="text-[13px] text-muted">
+          Role <span className="text-dim">(optional)</span>
         </label>
         <input
           id="demo-role"
@@ -164,8 +164,8 @@ export default function DemoRequestForm() {
         />
       </div>
       <div>
-        <label htmlFor="demo-goal" className="text-[13px] text-white/70">
-          What should we cover? <span className="text-white/35">(optional)</span>
+        <label htmlFor="demo-goal" className="text-[13px] text-muted">
+          What should we cover? <span className="text-dim">(optional)</span>
         </label>
         <textarea
           id="demo-goal"
@@ -175,22 +175,22 @@ export default function DemoRequestForm() {
           value={goal}
           onChange={(e) => setGoal(e.target.value)}
           placeholder="Agent stack, a specific workflow, or a question."
-          className="mt-1.5 w-full border border-white/20 bg-black/40 px-4 py-3 text-[15px] text-white outline-none placeholder:text-white/30 focus:border-elah-blue"
+          className="mt-1.5 w-full rounded-[12px] border border-line-2 bg-ov/[0.03] px-[14px] py-2.5 text-[14px] text-ink outline-none transition placeholder:text-dim focus:border-brand focus:shadow-[0_0_0_3px_rgb(16_134_252_/_0.22)]"
         />
       </div>
       <button
         type="submit"
         disabled={status === "saving"}
-        className="inline-flex min-h-[48px] w-full items-center justify-center bg-elah-blue px-5 text-[15px] font-semibold text-black transition hover:bg-white disabled:opacity-50"
+        className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-button px-5 text-[14px] font-semibold text-white shadow-button transition hover:bg-brand-hover disabled:opacity-50"
       >
         {status === "saving" ? "Sending…" : "Request a demo"}
       </button>
-      <p className="text-[12px] leading-relaxed text-white/40">
+      <p className="text-[12px] leading-relaxed text-dim">
         We reply within one business day to book 30 minutes. We will not add you
         to a list from this form.
       </p>
       {message ? (
-        <p className="text-[13px] text-red-400" role="status">
+        <p className="text-[13px] text-bad-ink" role="status">
           {message}
         </p>
       ) : null}

@@ -1,15 +1,64 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+/* ELAH's landing site, in ELAH Monitor's design system (elah-monitor/monitor/web/static/monitor.css), as
+   X-ray and APACT are:
+   - Monitor's tokens, light by default and dark from the theme switch (the elah_theme cookie)
+   - Space Grotesk for what people read, JetBrains Mono for labels, ids and numbers
+   - mono eyebrows; glass panels with hairline borders; pill buttons; a floating pill nav
+   - outcomes in emerald / amber / rose, always with a glyph and a label, never colour alone
+   The two token blocks below are Monitor's, unchanged. The site's own names follow them and map onto them;
+   components reach them through tailwind.config.ts. */
+
+@font-face { font-family: "Space Grotesk"; src: url("/fonts/space-grotesk-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 800; font-display: swap; }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  --brand: #1086fc; --button: #0a6fd6; --brand-hover: #085cb3; --brand-soft: #0a6fd6; --accent: #0a6fd6;
+  --glow: 0 0 0 1px rgb(16 134 252 / .3), 0 18px 50px -24px rgb(16 134 252 / .45);
+  --shadow: 0 1px 2px rgb(16 24 40 / .05), 0 16px 40px -28px rgb(16 24 40 / .25);
+  --bg: #f4f6f9; --panel: #ffffff; --panel-2: #ffffff; --sunk: #f6f8fb; --nav-bg: rgb(255 255 255 / .82); --tip-bg: rgb(255 255 255 / .97);
+  --ov: 10 16 36; --ink-rgb: 10 16 36;
+  --line: rgb(10 16 36 / .09); --line-2: rgb(10 16 36 / .16); --edge: #d9e1ec;
+  --glass: linear-gradient(180deg, rgb(255 255 255 / 0), rgb(255 255 255 / 0));
+  --ink: #0a1024; --ink-2: rgb(10 16 36 / .82); --muted: rgb(10 16 36 / .7); --dim: rgb(10 16 36 / .62);
+  --s-agent: #1f86f5; --s-person: #12a072; --s-unknown: #8290a5;
+  --ok: #059669; --ok-ink: #0d7a46; --warn: #d97706; --warn-ink: #8a5a00; --bad: #e11d48; --bad-ink: #b3261e;
+  --test: #6366f1; --test-ink: #4338ca; --neutral: #64748b;
+  --glow-a: .16; --grid-a: .09;
+  --text: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --radius: 20px; --radius-sm: 12px; --wrap: 1200px;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --brand: #1086fc; --button: #1086fc; --brand-hover: #2a95ff; --brand-soft: #8cc4ff; --accent: #5aaeff;
+  --glow: 0 0 0 1px rgb(16 134 252 / .35), 0 20px 80px -20px rgb(16 134 252 / .55);
+  --shadow: 0 24px 60px -40px rgb(0 0 0 / .8);
+  --bg: #05070d; --panel: #0b1120; --panel-2: #111a2c; --sunk: #070b15; --nav-bg: rgb(7 10 18 / .78); --tip-bg: rgb(17 26 44 / .96);
+  --ov: 255 255 255; --ink-rgb: 231 236 247;
+  --line: rgb(255 255 255 / .08); --line-2: rgb(255 255 255 / .13); --edge: #1f2b45;
+  --glass: linear-gradient(180deg, rgb(255 255 255 / .05), rgb(255 255 255 / .015));
+  --ink: #f2f5fb; --ink-2: rgb(231 236 247 / .78); --muted: rgb(231 236 247 / .56); --dim: rgb(231 236 247 / .4);
+  --s-agent: #1f86f5; --s-person: #14a874; --s-unknown: #5d6b85;
+  --ok: #34d399; --ok-ink: #6ee7b7; --warn: #fbbf24; --warn-ink: #fcd34d; --bad: #fb7185; --bad-ink: #fda4af;
+  --test: #a5b4fc; --test-ink: #c7d2fe; --neutral: #94a3b8;
+  --glow-a: .26; --grid-a: .07;
   color-scheme: dark;
-  --background: #0a1024;
-  --foreground: #e7ecf7;
-  --elah-blue: #1086fc;
-  --elah-gray: #4a4a4a;
+}
+
+/* The site's own names, on Monitor's tokens. */
+:root {
+  --brand-rgb: 16 134 252;
+  --hero-glow: .22;
+  --background: var(--bg);
+  --foreground: var(--ink);
+}
+:root[data-theme="dark"] {
+  --hero-glow: .45;
 }
 
 * {
@@ -20,61 +69,57 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(0, 168, 255, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 168, 255, 0.14) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
+/* Monitor's backdrop: a grid that fades out from the top, and two soft glows */
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(760px 560px at 92% -6%, rgb(16 134 252 / var(--glow-a)), rgb(16 134 252 / .04) 45%, transparent 70%),
+    radial-gradient(620px 520px at -8% 34%, rgb(88 80 236 / .13), transparent 65%); }
+body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgb(60 120 220 / var(--grid-a)) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(60 120 220 / var(--grid-a)) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 25%, transparent 75%);
+          mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 25%, transparent 75%); }
 
-body:has(main.landing) {
-  background: #05070d;
-}
-
-body:has(main.landing)::before {
-  display: none;
-}
-
-::selection {
-  background: rgba(16, 134, 252, 0.45);
-  color: #fff;
-}
+::selection { background: rgb(16 134 252 / .45); color: #fff; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
 
 /* Landing surfaces */
 .grid-fade {
   background-image:
-    linear-gradient(rgba(120, 170, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 170, 255, 0.07) 1px, transparent 1px);
+    linear-gradient(rgb(60 120 220 / var(--grid-a)) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(60 120 220 / var(--grid-a)) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
 }
 
+/* Monitor's card */
 .glass {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  backdrop-filter: blur(14px);
+  background: var(--glass), var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
 
 .glow-blue {
-  box-shadow:
-    0 0 0 1px rgba(16, 134, 252, 0.35),
-    0 20px 80px -20px rgba(16, 134, 252, 0.55);
+  box-shadow: var(--glow);
+}
+
+/* the section glows, as strong as the theme allows */
+.hero-glow {
+  background: radial-gradient(circle, rgb(16 134 252 / var(--hero-glow)), transparent 65%);
 }
 
 .noise::after {
@@ -85,6 +130,24 @@ body:has(main.landing)::before {
   opacity: 0.05;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
+
+/* Outcomes: Monitor's tag colours, always beside a glyph and a label */
+.tone { --c: var(--neutral); --ci: var(--ink-2); color: var(--ci);
+  background: color-mix(in srgb, var(--c) 11%, transparent);
+  border-color: color-mix(in srgb, var(--c) 40%, transparent); }
+.tone-ok { --c: var(--ok); --ci: var(--ok-ink); }
+.tone-warn { --c: var(--warn); --ci: var(--warn-ink); }
+.tone-bad { --c: var(--bad); --ci: var(--bad-ink); }
+
+/* Monitor's theme switch: a moon in light, a sun in dark */
+.logo-dark { display: none !important; }
+:root[data-theme="dark"] .logo-dark { display: block !important; }
+:root[data-theme="dark"] .logo-light { display: none !important; }
+.theme-switch i { width: 14px; height: 14px; border-radius: 50%; display: block;
+  box-shadow: inset -5px -3px 0 0 currentColor; transform: rotate(-20deg); }
+:root[data-theme="dark"] .theme-switch i { width: 8px; height: 8px; background: currentColor; transform: none; box-shadow:
+  0 -7px 0 -2.5px currentColor, 0 7px 0 -2.5px currentColor, 7px 0 0 -2.5px currentColor, -7px 0 0 -2.5px currentColor,
+  5px 5px 0 -2.5px currentColor, -5px -5px 0 -2.5px currentColor, 5px -5px 0 -2.5px currentColor, -5px 5px 0 -2.5px currentColor; }
 
 .reveal {
   opacity: 0;
@@ -327,7 +390,7 @@ body:has(main.landing)::before {
 }
 
 .mono {
-  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-family: var(--mono);
 }
 
 @layer utilities {

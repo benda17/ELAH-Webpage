@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+// Light by default, dark from the theme switch, as in ELAH's other apps. The theme-color meta is set by the
+// theme script below, so it follows the visitor's choice.
 export const viewport: Viewport = {
-  colorScheme: "dark",
-  themeColor: "#05070d",
+  colorScheme: "light dark",
 };
 
 export const metadata: Metadata = {
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  // The site is already dark; dark-mode extensions that recolor it break the hero.
+  // The site has its own dark theme (the theme switch); dark-mode extensions that recolor it break the hero.
   other: {
     "darkreader-lock": "true",
   },
@@ -76,15 +77,38 @@ const darkReaderGuard = `(function () {
   strip();
 })();`;
 
+// The visitor's light/dark choice (the elah_theme cookie, shared with X-ray and APACT), applied before the page
+// paints so it never flashes the wrong theme.
+const themeScript = `(function () {
+  var m = document.cookie.match(/(?:^|; )elah_theme=(dark|light)/);
+  var theme = m ? m[1] : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.name = "theme-color";
+    document.head.appendChild(meta);
+  }
+  meta.content = theme === "dark" ? "#05070d" : "#f4f6f9";
+})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script dangerouslySetInnerHTML={{ __html: darkReaderGuard }} />
+        <link
+          rel="preload"
+          href="/fonts/space-grotesk-latin-wght-normal.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </head>
       <body>{children}</body>
     </html>

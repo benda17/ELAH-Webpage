@@ -55,19 +55,19 @@ export default function AccessFlow() {
   }, [paused]);
 
   return (
-    <section id="flow" className="relative scroll-mt-24 overflow-hidden border-t border-white/5 px-6 py-28 sm:py-32">
+    <section id="flow" className="relative scroll-mt-24 overflow-hidden border-t border-line px-6 py-28 sm:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-40 top-1/3 h-[600px] w-[600px] rounded-full opacity-40 blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(16,134,252,0.4), transparent 65%)" }}
+        style={{ background: "radial-gradient(circle, rgb(16 134 252 / var(--hero-glow)), transparent 65%)" }}
       />
       <div className="relative mx-auto max-w-[1200px]">
         <Reveal>
-          <p className="mono text-[11px] uppercase tracking-[0.22em] text-[#8cc4ff]">How ELAH works</p>
-          <h2 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
+          <p className="mono text-[11px] uppercase tracking-[0.22em] text-brand-soft">How ELAH works</p>
+          <h2 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-ink sm:text-6xl">
             Watch, rebuild the task, test it. Then your site decides.
           </h2>
-          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/60">
+          <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-muted">
             ELAH sits in front of your pages. It asks nothing of anyone. It
             works out what each agent was sent to do, and whether it is still
             doing that.
@@ -79,9 +79,9 @@ export default function AccessFlow() {
           onMouseLeave={() => setPaused(false)}
         >
           <div className="relative hidden lg:block">
-            <div className="absolute left-[7%] right-[7%] top-6 h-px bg-white/10" />
+            <div className="absolute left-[7%] right-[7%] top-6 h-px bg-ov/10" />
             <div
-              className="absolute left-[7%] top-6 h-px bg-gradient-to-r from-[#1086FC]/0 via-[#1086FC] to-[#8cc4ff] transition-all duration-700"
+              className="absolute left-[7%] top-6 h-px bg-gradient-to-r from-brand/0 via-brand to-brand-soft transition-all duration-700"
               style={{ width: `${(active / (STEPS.length - 1)) * 86}%` }}
             />
           </div>
@@ -102,24 +102,24 @@ export default function AccessFlow() {
                     <span
                       className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border font-mono text-sm transition-all duration-500 ${
                         on
-                          ? "border-[#1086FC] bg-[#1086FC] text-white shadow-[0_0_30px_rgba(16,134,252,0.8)]"
+                          ? "border-brand bg-button text-white shadow-[0_0_30px_rgba(16,134,252,0.8)]"
                           : past
-                            ? "border-[#1086FC]/60 bg-[#0b1630] text-[#8cc4ff]"
-                            : "border-white/10 bg-[#0a0d16] text-white/40"
+                            ? "border-brand/60 bg-panel text-brand-soft"
+                            : "border-line-2 bg-panel-2 text-dim"
                       }`}
                     >
                       {on ? (
-                        <span className="absolute inset-0 rounded-full border border-[#1086FC] [animation:pulseRing_1.6s_ease-out_infinite]" />
+                        <span className="absolute inset-0 rounded-full border border-brand [animation:pulseRing_1.6s_ease-out_infinite]" />
                       ) : null}
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className={`text-lg font-semibold tracking-tight transition lg:mt-4 ${on ? "text-white" : "text-white/55"}`}>
+                    <h3 className={`text-lg font-semibold tracking-tight transition lg:mt-4 ${on ? "text-ink" : "text-muted"}`}>
                       {step.name}
                     </h3>
                   </div>
                   <p
                     className={`mt-3 text-[14px] leading-relaxed transition-all duration-500 lg:text-center lg:text-[13px] ${
-                      on ? "text-white/75" : "text-white/35 lg:opacity-0 lg:group-hover:opacity-100"
+                      on ? "text-muted" : "text-dim lg:opacity-0 lg:group-hover:opacity-100"
                     }`}
                   >
                     {step.body}
@@ -131,15 +131,15 @@ export default function AccessFlow() {
         </div>
 
         <Reveal className="glass mt-16 rounded-3xl p-6 sm:p-8">
-          <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/40">Trust chain</p>
+          <p className="mono text-[10px] uppercase tracking-[0.2em] text-dim">Trust chain</p>
           <ol className="relative mt-5 flex flex-wrap items-center gap-x-2 gap-y-3 text-[13px]">
             {CHAIN.map((link, i) => (
               <li key={link} className="flex items-center gap-2">
-                <span className="rounded-full border border-white/10 bg-black/30 px-3.5 py-1.5 text-white/85">{link}</span>
+                <span className="rounded-full border border-line-2 bg-sunk px-3.5 py-1.5 text-ink-2">{link}</span>
                 {i < CHAIN.length - 1 ? (
-                  <span aria-hidden className="relative block h-px w-6 overflow-hidden bg-white/15">
+                  <span aria-hidden className="relative block h-px w-6 overflow-hidden bg-ov/15">
                     <span
-                      className="absolute top-0 h-px w-2 bg-[#8cc4ff]"
+                      className="absolute top-0 h-px w-2 bg-brand-soft"
                       style={{ animation: `flowDot 1.8s linear ${i * 0.3}s infinite` }}
                     />
                   </span>
@@ -147,7 +147,7 @@ export default function AccessFlow() {
               </li>
             ))}
           </ol>
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/50">
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-dim">
             Every step is evidence. ELAH signs the signals your site receives, so
             they can&apos;t be altered on the way to your checkout.
           </p>
