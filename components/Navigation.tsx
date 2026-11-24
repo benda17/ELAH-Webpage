@@ -7,7 +7,7 @@ import { LOGIN_URL, SIGNUP_URL } from "@/lib/links";
 
 const LINKS = [
   { href: "/#apact", label: "APACT" },
-  { href: "/#flow", label: "How it works" },
+  // { href: "/#flow", label: "How it works" }, // hidden with the "How ELAH works" section
   { href: "/#live", label: "Live demos" },
   { href: "/pricing", label: "Pricing" },
   { href: "/install", label: "Install" },

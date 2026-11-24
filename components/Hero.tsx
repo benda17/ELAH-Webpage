@@ -149,19 +149,13 @@ export default function Hero() {
               <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
             </a>
             <a
-              href="#flow"
+              href="#apact"
               className="inline-flex items-center justify-center rounded-full border border-line-2 bg-ov/[0.03] px-7 py-3.5 text-[15px] font-medium text-ink-2 transition hover:border-dim hover:text-ink"
             >
               See how it works
             </a>
           </div>
           <HeroNewsletterForm />
-          <ul className="mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.16em] text-dim">
-            <li>Invisible to people</li>
-            <li>No questions for agents</li>
-            <li>Task · loyalty · honesty</li>
-            <li>You decide</li>
-          </ul>
         </div>
 
         <div className="relative mx-auto flex w-full max-w-[420px] items-center justify-center lg:mx-0 lg:min-h-[460px] lg:justify-end">
